@@ -3,12 +3,13 @@ html
         title Gallery
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(rel="stylesheet" href="css/styles.css")
+        style
+            include ../../public/css/styles.css
     body
         block nav
-            include ../includes/nav
+            include ../partials/nav
 
         block content
         
         block footer
-            include ../includes/footer
+            include ../partials/footer
