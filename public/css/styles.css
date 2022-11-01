@@ -1,3 +1,8 @@
 #nav {
 	font-size: x-large;
 }
+
+#Error {
+	font-size: x-large;
+	color: red;
+}

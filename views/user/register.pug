@@ -3,12 +3,11 @@ extends ../layouts/layout
 block content
     div#register
         h1 Register
+        if errorMessage
+            p#Error= errorMessage
         form(action="/register" method="post")
-            div
-                label(for="username") Username
-                input#username(type="text" name="username")
-            div
-                label(for="password") Password
-                input#password(type="password" name="password")
-            div
-                input(type="submit" value="Register")
+            include ../partials/form
+            div#cancelRegister
+                a#cancelBtn(href="/") Cancel
+                input#registerBtn(type="submit" value="Register")
+            

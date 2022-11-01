@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-
+const bodyParser = require("body-parser");
 const indexRouter = require("./routes/index");
 const registerRouter = require("./routes/register");
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
 
 mongoose.connect("mongodb://localhost:27017/gallery", {
 	useNewUrlParser: true,

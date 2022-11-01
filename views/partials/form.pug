@@ -1,0 +1,11 @@
+div#username
+    label(for="username") Username
+    input#username(type="text" name="username" value=user.username)
+div#password
+    label(for="password") Password
+    input#password(type="password" name="password" value= user.password)
+div#accountType
+    label(for="accountType") Account Type
+    select#accountType(name="accountType")
+        option(value="patron") Patron
+        option(value="artist") Artist
