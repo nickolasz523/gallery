@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.get("/", (req, res) => {
-	res.render("user/register", { user: new User() });
+	res.render("user/register", { user: new User(), session: req.session });
 });
 
 router.post("/", (req, res) => {
@@ -20,13 +20,16 @@ router.post("/", (req, res) => {
 				user: user,
 				errorMessage:
 					"Error creating user account. Perhaps the username is already taken?",
+				session: req.session,
 			});
 		} else {
+			req.session.loggedin = true;
+			req.session.username = user.username;
+			// console.log(user);
 			res.status(200);
-			res.redirect(307, "/login");
+			res.redirect("/");
 		}
 	});
-	// res.send(user);
 });
 
 module.exports = router;

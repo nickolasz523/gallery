@@ -1,12 +1,8 @@
-block nav
+if (session.loggedin)
+    block nav
         nav#nav
             a(href="/") Home
             ul
-                    
-                li
-                    a(href="/register") Register
-                li
-                    a(href="/login") Login
                 li
                     a(href="/logout") Logout
                 li
@@ -15,3 +11,12 @@ block nav
                     a(href="/upload") Upload
                 li
                     a(href="/profile") Profile
+else
+    block nav
+        nav#nav
+            a(href="/") Home
+            ul
+                li
+                    a(href="/login") Login
+                li
+                    a(href="/register") Register

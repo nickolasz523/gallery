@@ -3,7 +3,12 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.get("/", (req, res) => {
-	res.render("user/login", { user: new User() });
+	if (req.session.loggedin) {
+		// res.render("user/profile", { session: req.session });
+		res.redirect("/");
+		return;
+	}
+	res.render("user/login", { user: new User(), session: req.session });
 });
 
 router.post("/", (req, res) => {
@@ -23,11 +28,15 @@ router.post("/", (req, res) => {
 				res.render("user/login", {
 					user: user,
 					errorMessage: "Invalid username or password.",
+					session: req.session,
 				});
 			} else {
+				req.session.loggedin = true;
+				req.session.username = user.username;
 				// console.log(user);
 				res.status(200);
 				res.redirect("/");
+				// res.render("index", { user: userFound, session: req.session });
 			}
 		}
 	);
