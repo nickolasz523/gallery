@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+
 const indexRouter = require("./routes/index");
 const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login");
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
@@ -20,6 +22,7 @@ db.once("open", () => console.log("Connected to Mongoose"));
 
 app.use("/", indexRouter);
 app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
 app.listen(3000, () => {
 	console.log("Server started on port 3000");

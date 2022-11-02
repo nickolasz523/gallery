@@ -14,6 +14,7 @@ router.post("/", (req, res) => {
 	});
 	user.save((err, newUser) => {
 		if (err) {
+			res.status(500);
 			console.log(err);
 			res.render("user/register", {
 				user: user,
@@ -21,8 +22,8 @@ router.post("/", (req, res) => {
 					"Error creating user account. Perhaps the username is already taken?",
 			});
 		} else {
-			// res.redirect("/login");
-			res.redirect("/");
+			res.status(200);
+			res.redirect(307, "/login");
 		}
 	});
 	// res.send(user);

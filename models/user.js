@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-	accountType: String,
+	accountType: {
+		type: String,
+		default: "artist",
+	},
 	username: {
 		type: String,
 		required: true,
