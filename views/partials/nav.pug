@@ -6,11 +6,11 @@ if (session.loggedin)
                 li
                     a(href="/logout") Logout
                 li
-                    a(href="/gallery") Gallery
+                    a(href="/gallerybruh") Gallery
                 li
                     a(href="/upload") Upload
                 li
-                    a(href="/profile") Profile
+                    a(href="/users/" + session.username) Profile
 else
     block nav
         nav#nav

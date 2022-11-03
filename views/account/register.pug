@@ -7,11 +7,6 @@ block content
             p#Error= errorMessage
         form(action="/register" method="post")
             include ../partials/form
-            div#accountType
-                label(for="accountType") Account Type
-                select#accountType(name="accountType")
-                    option(value="patron") Patron
-                    option(value="artist") Artist
             div#cancelRegister
                 a#cancelBtn(href="/") Cancel
                 input#registerBtn(type="submit" value="Register")

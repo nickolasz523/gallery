@@ -4,11 +4,10 @@ const User = require("../models/user");
 
 router.get("/", (req, res) => {
 	if (req.session.loggedin) {
-		// res.render("user/profile", { session: req.session });
 		res.redirect("/");
-		return;
+	} else {
+		res.render("account/login", { user: new User(), session: req.session });
 	}
-	res.render("user/login", { user: new User(), session: req.session });
 });
 
 router.post("/", (req, res) => {
@@ -25,7 +24,7 @@ router.post("/", (req, res) => {
 			}
 			if (!userFound) {
 				res.status(404);
-				res.render("user/login", {
+				res.render("account/login", {
 					user: user,
 					errorMessage: "Invalid username or password.",
 					session: req.session,
