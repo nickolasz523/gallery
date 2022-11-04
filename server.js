@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
+const methodOverride = require("method-override");
 
 const indexRouter = require("./routes/index");
 const registerRouter = require("./routes/register");
@@ -13,6 +14,7 @@ app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
 
@@ -29,6 +31,10 @@ app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/users", usersRouter);
+
+app.use(function (req, res, next) {
+	res.status(404).render("404", { session: req.session });
+});
 
 app.listen(3000, () => {
 	console.log("Server started on port 3000");

@@ -1,12 +1,15 @@
 //- create a pug view for login
 extends ../layouts/layout
 block content
-    div#login
-        h1 Login
-        if errorMessage
-            p#Error= errorMessage
-        form(action="/login" method="post")
-            include ../partials/form
-            div#cancelLogin
-                a#cancelBtn(href="/") Cancel
-                input#loginBtn(type="submit" value="Login")
+    div(id="loginContainer" class="container")
+        div(id="loginCardContent" class="card-content")
+            div(id="loginCardTitle" class="card-title")    
+                h1 enter credentials
+            if errorMessage
+                p#Error= errorMessage
+            form(action="/login" method="post")
+                div(class="account-info" id="login-info")
+                    include ../partials/form
+                div(class="btn-container" id="cancel-login")
+                    a#cancelBtn(href="/") Cancel
+                    input(class="accountBtn" id="loginBtn" type="submit" value="Login")

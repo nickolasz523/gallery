@@ -5,11 +5,12 @@ extends ../layouts/layout.pug
 block content
     if(user.accountType === "artist")
         - var change = "become a patron"
-        - var changeLink = user.username+"/patron"
+        - var changeLink = user.username+"/update"+"/patron"
     else
         - var change = "become an artist"
-        - var changeLink = user.username+"/artist"
-    p Welcome to your profile, #{session.username}!
+        - var changeLink = user.username+"/update"+"/artist"
+    div(id="profile" class="container")
+        p Welcome to your profile, #{session.username}!
 
-    form(action=changeLink name="_method" method="POST")
-        input(type="submit" value=change)
+        form(method="post" action=changeLink+ "?_method=PUT")
+            input(type="submit" value=change)

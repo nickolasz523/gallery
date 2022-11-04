@@ -6,14 +6,11 @@ router.get("/", (req, res) => {
 	res.send("page for users");
 });
 
-router.get("/:username", (req, res) => {
+router.get("/:username", async (req, res) => {
 	paramUsername = req.params.username;
-	User.findOne({ username: paramUsername }, (err, userFound) => {
-		if (err) {
-			res.status(500);
-			console.log(err);
-		}
-		if (!userFound) {
+	try {
+		const user = await User.findOne({ username: req.params.username });
+		if (user == null) {
 			res.status(404);
 			res.render("users/notFound", {
 				username: paramUsername,
@@ -21,62 +18,44 @@ router.get("/:username", (req, res) => {
 				session: req.session,
 			});
 		} else {
+			res.status(200);
 			if (paramUsername === req.session.username) {
-				res.status(200);
 				res.render("users/profile", {
-					user: userFound,
+					user: user,
 					session: req.session,
 				});
 			} else {
-				res.status(200);
 				res.render("users/otherUser", {
-					user: userFound,
+					user: user,
 					session: req.session,
 				});
 			}
 		}
-	});
-});
-
-router.post("/:username/:type", (req, res) => {
-	paramUsername = req.params.username;
-	paramType = req.params.type;
-
-	if (req.session.username === paramUsername) {
-		console.log(paramType);
-		if (paramType !== "patron" && paramType !== "artist") {
-			console.log("redirecting");
-			res.redirect("/users/" + paramUsername);
-		}
-		User.findOne({ username: paramUsername }, (err, userFound) => {
-			if (err) {
-				res.status(500);
-				console.log(err);
-			}
-			if (!userFound) {
-				res.status(404);
-				res.render("users/notFound", {
-					username: paramUsername,
-					errorMessage: "User not found.",
-					session: req.session,
-				});
-			} else {
-				console.log("worked?");
-				userFound.accountType = paramType;
-				userFound.save((err, updatedUser) => {
-					if (err) {
-						res.status(500);
-						console.log(err);
-					}
-					res.redirect("/users/" + paramUsername);
-				});
-			}
-		});
+	} catch {
+		res.status(500);
+		console.log("error looking for user");
 	}
 });
 
+router.put("/:username/update/:type", async (req, res) => {
+	paramUsername = req.params.username;
+	paramType = req.params.type;
+	let user;
+	if (paramUsername === req.session.username) {
+		try {
+			user = await User.findOne({ username: paramUsername });
+			user.accountType = paramType;
+			await user.save();
+		} catch {
+			res.status(500);
+		}
+	} else {
+		res.status(403);
+	}
+	res.redirect("/users/" + paramUsername);
+});
+
 router.get("/:username/:type", (req, res) => {
-	console.log("mhm");
 	paramUsername = req.params.username;
 	paramType = req.params.type;
 

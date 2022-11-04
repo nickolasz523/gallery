@@ -1,13 +1,15 @@
 extends ../layouts/layout
 
 block content
-    div#register
-        h1 Register
-        if errorMessage
-            p#Error= errorMessage
-        form(action="/register" method="post")
-            include ../partials/form
-            div#cancelRegister
-                a#cancelBtn(href="/") Cancel
-                input#registerBtn(type="submit" value="Register")
+    div(id="loginContainer" class="container")
+        div(id="registerCardContent" class="card-content")
+            if errorMessage
+                    p#Error= errorMessage
+            div(id="registerCardTitle" class="card-title")    
+                h1 register
             
+            form(action="/register" method="post")
+                div(class="account-info" id="register-info")
+                    include ../partials/form
+                div(class="btn-container" id="register")
+                    input(class="accountBtn" id="registerBtn" type="submit" value="Register")

@@ -1,22 +1,20 @@
-if (session.loggedin)
-    block nav
-        nav#nav
-            a(href="/") Home
-            ul
+
+block nav
+    nav(class="navbar")
+        a(class="home" "href"="/") gallery.
+        if(session.loggedin)        
+            ul(class="nav-links")    
                 li
-                    a(href="/logout") Logout
+                    a("href"="/logout" class="navOther") Logout
                 li
-                    a(href="/gallerybruh") Gallery
+                    a("href"="/users/" + session.username class="navOther") Profile
                 li
-                    a(href="/upload") Upload
+                    a("href"="/gallery" class="navOther") Gallery
+        else
+            ul(class="nav-links")
                 li
-                    a(href="/users/" + session.username) Profile
-else
-    block nav
-        nav#nav
-            a(href="/") Home
-            ul
+                    a("href"="/login" class="navOther") Login
                 li
-                    a(href="/login") Login
-                li
-                    a(href="/register") Register
+                    a("href"="/register" class="navBtn") Register
+
+            

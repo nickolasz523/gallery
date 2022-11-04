@@ -1,4 +1,8 @@
 extends ../layouts/layout
 
 block content
-    p Welcome to #{user.username}'s profile!
+    div(id="otherUser" class="container")
+        if (session.loggedin)
+            p Welcome to #{user.username}'s profile!
+        else
+            p you must login to view this page
