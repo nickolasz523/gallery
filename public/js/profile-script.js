@@ -7,5 +7,4 @@ function redirectFollowing() {
 	location = location += "/following";
 	console.log(location);
 	window.location = location;
-	// window.location.href += "/following";
 }

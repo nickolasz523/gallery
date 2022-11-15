@@ -9,6 +9,22 @@ const artSchema = new mongoose.Schema(
 		medium: String,
 		description: String,
 		image: String,
+		likes: [
+			{
+				type: String,
+				default: [],
+			}
+		],
+		comments: [
+			{
+				type: String,
+				default: [],
+			},
+			{
+				type: String,
+				default: [],
+			}
+		]
 	},
 	{ collection: "art" }
 );

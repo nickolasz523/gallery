@@ -1,0 +1,29 @@
+extends ../layouts/layout
+
+block content
+    if session.loggedin
+        if !errorMessage     
+            div(class="gallery-container")
+                ul
+                each item in gallery
+                    div(class="gallery-item")
+                        img(src=item.image class="gallery-image" onclick="clickImage('" + item._id + "')" loading="lazy")
+                        div(class="like-comment-container")
+                            div(class="like-container like-comment")
+                                if item.likes.includes(session.username)
+                                    i(class="fas fa-heart" onclick="like('" + item._id + "')")
+                                else
+                                    i(class="far fa-heart" onclick="unlike('" + item._id + "')")
+                                span= item.likes.length
+                            div(class="comment-container like-comment")
+                                i(class="far fa-comment" onclick="comment('" + item._id + "')")
+                                span= item.comments.length
+                                input(type="text" class="comment-input")
+                                button(class="comment-btn button" id="addComment") Send
+        
+        else 
+            p #{errorMessage}
+    else
+        p You must be logged in to view your following!
+
+    script("src"="/js/gallery-script.js")

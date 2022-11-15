@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
 			ref: "Art",
 		},
 	],
+	likes: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Art",
+		}
+	]
 });
 
 module.exports = mongoose.model("User", userSchema);

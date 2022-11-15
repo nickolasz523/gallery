@@ -9,6 +9,7 @@ const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/logout");
 const usersRouter = require("./routes/users");
+const galleryRouter = require("./routes/gallery");
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
@@ -31,6 +32,7 @@ app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/users", usersRouter);
+app.use("/gallery", galleryRouter);
 
 app.use(function (req, res, next) {
 	res.status(404).render("404", { session: req.session });
