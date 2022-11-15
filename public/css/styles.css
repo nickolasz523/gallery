@@ -84,7 +84,7 @@ body {
 }
 
 .container {
-	height: calc(100% - 68px);
+	height: calc(100vh - 68px);
 }
 
 #loginContainer {
@@ -130,7 +130,7 @@ body {
 	background: transparent;
 }
 
-form {
+.regLogForm {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -176,7 +176,7 @@ form {
 }
 
 .btn-container a:hover {
-	color: var(--light);
+	color: var(--primary);
 	transition: 0.3s;
 }
 
@@ -203,6 +203,45 @@ form {
 	color: red;
 	max-width: 75%;
 	text-align: center;
+}
+
+#profileMessage {
+	margin: 0;
+	text-align: center;
+}
+.profile-container {
+	margin: 10px;
+}
+
+.profile-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.profile-content form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.button {
+	min-width: max-content;
+	font-size: 20px;
+	font-weight: 600;
+	background-color: var(--primary);
+	border-radius: 4px;
+	border: none;
+	color: var(--dark);
+	box-shadow: 2px 2px 2px 0 rgb(0, 0, 0, 0.2);
+	width: 50%;
+}
+
+.button:hover {
+	cursor: pointer;
+	color: var(--light);
+	transition: 0.3s;
 }
 
 /* mint: #00FFC5

@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+//requrie art schema
+const Art = require("./art");
 
 const userSchema = new mongoose.Schema({
 	accountType: {
@@ -16,7 +18,13 @@ const userSchema = new mongoose.Schema({
 	},
 	following: [
 		{
-			type: String,
+			type: String
+		},
+	],
+	art: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Art",
 		},
 	],
 });

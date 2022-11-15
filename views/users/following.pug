@@ -1,0 +1,14 @@
+extends ../layouts/layout
+
+block content
+    if session.loggedin
+        if !errorMessage     
+            p Welcome to your following!
+            ul
+            each user in following
+                li
+                a(href="/users/" + user)= following
+        else 
+            p #{errorMessage}
+    else
+        p You must be logged in to view your following!

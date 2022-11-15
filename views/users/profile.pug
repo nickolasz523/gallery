@@ -9,8 +9,15 @@ block content
     else
         - var change = "become an artist"
         - var changeLink = user.username+"/update"+"/artist"
-    div(id="profile" class="container")
-        p Welcome to your profile, #{session.username}!
+    div(id="profile" class="container profile-container")
+        p(id="profileMessage") Welcome to your profile, 
+            strong #{session.username}
+            |!
+        div(id="profileContent" class="profile-content")
+            p Your account type is 
+                strong #{user.accountType}
+            form(method="post" action=changeLink+ "?_method=PUT")
+                input(type="submit" value=change class="switchBtn button")
+            button(href="/followings" class="button" id="followingBtn") View your following
 
-        form(method="post" action=changeLink+ "?_method=PUT")
-            input(type="submit" value=change)
+    script(src="/js/profile-script.js")

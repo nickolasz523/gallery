@@ -24,18 +24,19 @@ router.post("/", (req, res) => {
 			}
 			if (!userFound) {
 				res.status(404);
-				res.render("account/login", {
-					user: user,
-					errorMessage: "Invalid username or password.",
-					session: req.session,
-				});
+				req.session.loginErrorMessage = "Invalid username or password";
+				res.redirect("/login");
+				// res.render("account/login", {
+				// 	user: user,
+				// 	errorMessage: "Invalid username or password.",
+				// 	session: req.session,
+				// });
 			} else {
 				req.session.loggedin = true;
 				req.session.username = user.username;
-				// console.log(user);
+				req.session.loginErrorMessage = "";
 				res.status(200);
 				res.redirect("/");
-				// res.render("index", { user: userFound, session: req.session });
 			}
 		}
 	);
