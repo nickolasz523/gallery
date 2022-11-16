@@ -21,14 +21,39 @@ router.get("/", (req, res) => {
 	// }
 });
 
-router.post("/:id/comment", async (req, res) => {
+router.put("/:id/comment", async (req, res) => {
 	let id = req.params.id;
 	let comment = req.body.comment;
 	let user = req.body.user;
+	if (comment === "" || user === "") {
+		res.sendStatus(400);
+		res.end();
+		return;
+	}
+
 	try {
 		await Art.findByIdAndUpdate(id, {
 			$push: { comments: { user: user, comment: comment } },
 		});
+	} catch (err) {
+		res.sendStatus(400);
+		res.end();
+		return;
+	}
+	res.status(201);
+	res.send();
+});
+
+router.put("/:id/like", async (req, res) => {
+	let id = req.params.id;
+	let user = req.body.user;
+	try {
+		let art = await Art.findById(id);
+		if (art.likes.includes(user)) {
+			await art.updateOne({ $pull: { likes: user } });
+		} else {
+			await art.updateOne({ $push: { likes: user } });
+		}
 	} catch (err) {
 		console.log(err);
 	}

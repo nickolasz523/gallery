@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
 	},
 	following: [
 		{
-			type: String
+			type: String,
+			default: [],
 		},
 	],
 	art: [
@@ -31,8 +32,15 @@ const userSchema = new mongoose.Schema({
 		{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Art",
-		}
-	]
+			default: [],
+		},
+	],
+	followers: [
+		{
+			type: String,
+			default: [],
+		},
+	],
 });
 
 module.exports = mongoose.model("User", userSchema);
