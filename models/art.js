@@ -13,18 +13,10 @@ const artSchema = new mongoose.Schema(
 			{
 				type: String,
 				default: [],
-			}
-		],
-		comments: [
-			{
-				type: String,
-				default: [],
 			},
-			{
-				type: String,
-				default: [],
-			}
-		]
+		],
+		comments: [{ user: String, comment: String }],
+		default: [],
 	},
 	{ collection: "art" }
 );
