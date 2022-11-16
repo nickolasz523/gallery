@@ -31,7 +31,7 @@ block content
                         p(class="comment-title") Comments
                         each comment in item.comments
                             div(class="comment")
-                                a(class="comment-user" href=`/users/${user}`)= comment.user
+                                a(class="comment-user" href=`/users/${comment.user}`)= comment.user
                                 p(class="comment-text")= comment.comment
     else 
             p #{errorMessage}
