@@ -1,0 +1,40 @@
+div(class="page-gallery")
+    div(class="gallery-container")
+        each item in gallery
+            div(class="gallery-item")
+                p(class="gallery-item-name")= item.name
+                img(src=item.image class="gallery-image" onclick="clickImage('" + item._id + "')" loading="lazy")
+                div(class="gallery-item-info")
+                    a(href=`/users/${item.artist}`) Artist: #{item.artist}
+                    a(class="gallery-item-year" href=`gallery?search=${item.year}&type=year`) Year: #{item.year}
+                    a(class="gallery-item-category" href=`/gallery?search=${item.category}&type=category`) Category: #{item.category}
+                    a(class="gallery-item-medium" href=`/gallery?search=${item.medium}&type=medium`) Medium: #{item.medium}
+                    p(class="gallery-item-description") Description: #{item.description}
+                div(class="like-comment-container")
+                    div(class="like-container like-comment")
+                        if item.likes.includes(session.username)
+                            i(class="fas fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
+                        else
+                            i(class="far fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
+                        span(class="num-likes-comments" id=`${item._id}-num-likes`)= item.likes.length
+                    div(class="comment-container like-comment")
+                        i(class="far fa-comment" onclick="comment('" + item._id + "')")
+                        span(class="num-likes-comments" id=`${item._id}-num-comments`)= item.comments.length
+                div(class="comment-section" id=`${item._id}-comment-section`)
+                    input(type="text" class="comment-input" id=`${item._id}-comment` placeholder="Add a comment...")
+                    button(class="comment-btn button" id="addComment" disabled="true" onclick=`postComment("${item._id}", "${session.username}")`) Post
+                div(class="comment-list" id=`${item._id}-comment-list`)
+                    p(class="comment-title") Comments
+                    each comment in item.comments
+                        div(class="onecomment-container" id=`comment${comment._id}-art${item._id}-comment`)
+                            div(class="comment")
+                                a(class="comment-user" href=`/users/${comment.user}`)= comment.user
+                                p(class="comment-text")= comment.comment
+                            if comment.user == session.username
+                                i(class="fas fa-trash-alt " onclick=`deleteComment("${item._id}", "${comment._id}", "${session.username}")`)
+    div(class="button-holder")
+        if page > 1
+            a(class="button" href=`/gallery?page=${page - 1}`) Previous
+        - if(page*10 < count)
+            a(class="button" href=`/gallery?page=${Number(page) + 1}`) Next
+script("src"="/js/gallery-script.js")

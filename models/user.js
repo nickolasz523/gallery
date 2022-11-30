@@ -28,6 +28,16 @@ const userSchema = new mongoose.Schema({
 			ref: "Art",
 		},
 	],
+
+	comments: [
+		{
+			art: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "Art",
+			},
+			comment: String,
+		},
+	],
 	likes: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
@@ -39,6 +49,12 @@ const userSchema = new mongoose.Schema({
 		{
 			type: String,
 			default: [],
+		},
+	],
+	notificatons: [
+		{
+			user: String,
+			type: String,
 		},
 	],
 });

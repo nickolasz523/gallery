@@ -10,11 +10,12 @@ const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/logout");
 const usersRouter = require("./routes/users");
 const galleryRouter = require("./routes/gallery");
+const searchRouter = require("./routes/search");
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
@@ -33,6 +34,7 @@ app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/users", usersRouter);
 app.use("/gallery", galleryRouter);
+app.use("/search", searchRouter);
 
 app.use(function (req, res, next) {
 	res.status(404).render("404", { session: req.session });

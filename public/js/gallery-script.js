@@ -21,10 +21,26 @@ function postComment(id, user) {
 	let userCommentText = document.getElementById(`${id}-comment`).value;
 	const http = new XMLHttpRequest();
 	http.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 201) {
+		if (this.readyState == 4 && this.status == 200) {
+			let commentid = this.responseText;
+			commentid = commentid.substring(1, commentid.length - 1);
+			let bruh = "bruh";
 			let commentDiv = document.getElementById(`${id}-comment-list`);
+
+			let onecomment = document.createElement("div");
+			onecomment.classList.add("onecomment-container");
+
+			onecomment.id = `comment${commentid}-art${id}-comment`;
 			let comment = document.createElement("div");
 
+			let icon = document.createElement("i");
+			icon.classList.add("fas");
+			icon.classList.add("fa-trash-alt");
+			icon.onclick = function () {
+				console.log(commentid);
+				console.log(bruh);
+				deleteComment(id, commentid, user);
+			};
 			let commentUser = document.createElement("a");
 			commentUser.innerHTML = user;
 			commentUser.classList.add("comment-user");
@@ -40,7 +56,10 @@ function postComment(id, user) {
 			comment.appendChild(commentUser);
 			comment.appendChild(commentText);
 
-			commentDiv.appendChild(comment);
+			onecomment.appendChild(comment);
+			onecomment.appendChild(icon);
+			commentDiv.appendChild(onecomment);
+
 			document.getElementById(`${id}-num-comments`).innerHTML =
 				parseInt(
 					document.getElementById(`${id}-num-comments`).innerHTML
@@ -57,7 +76,7 @@ function like(id, user) {
 	let heart = document.getElementById(`${id}-heart`);
 	const http = new XMLHttpRequest();
 	http.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 201) {
+		if (this.readyState == 4 && this.status == 200) {
 			if (heart.classList.contains("far")) {
 				heart.classList.add("fas");
 				heart.classList.remove("far");
@@ -78,4 +97,30 @@ function like(id, user) {
 	http.open("PUT", `/gallery/${id}/like`);
 	http.setRequestHeader("Content-Type", "application/json");
 	http.send(JSON.stringify({ user: user }));
+}
+
+//add remove button to all comments
+function deleteComment(picture, comment, user) {
+	const http = new XMLHttpRequest();
+	http.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			console.log("comment deleted");
+			let commentDiv = document.getElementById(`${picture}-comment-list`);
+			let commentElement = document.getElementById(
+				`comment${comment}-art${picture}-comment`
+			);
+			// console.log(commentElement);
+			commentDiv.removeChild(commentElement);
+
+			document.getElementById(`${picture}-num-comments`).innerHTML =
+				parseInt(
+					document.getElementById(`${picture}-num-comments`).innerHTML
+				) - 1;
+		}
+	};
+	http.open("DELETE", `/gallery/${picture}/delete`);
+	http.setRequestHeader("Content-Type", "application/json");
+	http.send(
+		JSON.stringify({ artid: picture, commentid: comment, user: user })
+	);
 }

@@ -24,6 +24,10 @@
 	font-family: "Poppins", sans-serif;
 	background-color: var(--light);
 }
+html,
+body {
+	overflow: auto;
+}
 
 body {
 	margin: 0;
@@ -107,8 +111,10 @@ body {
 }
 
 .card-content {
+	max-height: 60%;
 	min-height: 60%;
-	min-width: 25%;
+	min-width: 30%;
+	max-width: 60%;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -173,6 +179,16 @@ body {
 	text-decoration: none;
 }
 
+.errors {
+	text-align: center;
+	color: red;
+	width: fit-content;
+	margin-bottom: 10px;
+}
+.hide {
+	display: none;
+}
+
 .btn-container a:hover {
 	color: var(--primary);
 	transition: 0.3s;
@@ -222,9 +238,11 @@ body {
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	margin-bottom: 0;
 }
 
 .button {
+	margin-top: 10px;
 	min-width: max-content;
 	font-size: 20px;
 	font-weight: 600;
@@ -247,7 +265,9 @@ body {
 	list-style: none;
 }
 
-.gallery-container {
+.gallery {
+	height: inherit;
+	min-height: 100%;
 	background-image: linear-gradient(
 		to left bottom,
 		#00b2ff,
@@ -256,36 +276,56 @@ body {
 		#00eced,
 		#37fbd8
 	);
+}
+
+.gallery-container {
+	margin-top: 10px;
+	padding-top: 10px;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
 	justify-content: center;
+	height: max-content;
+}
+
+.gallery-item {
+	margin: 10px;
+	box-shadow: 2px 2px 2px 0 rgb(0, 0, 0, 0.2);
+	padding-bottom: 10px;
+	max-width: 20vw;
 }
 
 .gallery-item-name {
 	margin: 10px 0 0 10px;
 }
 
-.gallery-item {
-	width: max-content;
-	margin: 10px;
-	border-radius: 4px;
-	box-shadow: 2px 2px 2px 0 rgb(0, 0, 0, 0.2);
-}
-
 .gallery-image {
-	margin: 10px;
-	max-width: 40vw;
-	min-width: 40vw;
-	width: max-content;
+	width: 100%;
+	max-height: 40vh;
 }
 
 .gallery-item-info {
 	margin: 0 10px 0 10px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
+}
+
+.gallery-item-info a {
+	margin: 0;
+	display: block;
+}
+
+.search-container {
+	background-color: transparent;
+	padding-top: 10px;
+}
+
+.search-container i {
+	position: absolute;
+	padding: 10px;
+	right: 30%;
+	background: transparent;
 }
 
 .like-comment-container {
@@ -314,17 +354,11 @@ body {
 	position: relative;
 	left: 0px;
 	top: 0px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
 }
 
 .comment-input {
-	margin: 10px;
+	margin: 0 1% 0 1%;
 	outline: none;
-	height: 100%;
 	width: 85%;
 	float: left;
 	color: #1f1f9d;
@@ -336,9 +370,9 @@ body {
 }
 
 .comment-btn {
-	margin: 10px;
-	cursor: pointer;
+	margin: 0 1% 0 1%;
 	width: 10%;
+	cursor: pointer;
 }
 
 .comment-btn:hover {
@@ -354,19 +388,35 @@ body {
 	font-size: 16px;
 	margin: 0 5px 0 5px;
 }
+.onecomment-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
 
+.onecomment-container i {
+	margin-right: 5px;
+}
+
+.onecomment-container i:hover {
+	cursor: pointer;
+}
 .comment {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 0 5px 0 5px;
-	height: 20px;
+	margin: 0;
+	height: max-content;
+	justify-content: space-evenly;
 }
+
 .comment-list {
 	margin-bottom: 10px;
 }
-.comment-list * {
-	margin-left: 10px;
+
+.comment-list a {
+	margin-left: 5px;
 }
 
 .comment-title {
@@ -379,6 +429,10 @@ body {
 	color: var(--dark);
 }
 
+.comment-text {
+	margin: 0 0 0 10px;
+}
+
 i {
 	font-size: 20px;
 }
@@ -386,6 +440,117 @@ i {
 .fa-heart:hover {
 	cursor: pointer;
 }
+
+.artist-func {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.artist-func input {
+	margin: 10 0 10 0;
+	border: 1px solid var(--primary);
+	outline: none;
+	width: 100%;
+}
+
+.add-image {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 25%;
+}
+
+.workshop-container {
+	width: 25%;
+}
+
+#createWorkShopBtn {
+	width: 100%;
+}
+
+.page-gallery {
+	background: transparent;
+}
+.search-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+.search-input {
+	width: 50%;
+	border: 1px solid grey;
+	outline: none;
+	border-radius: 4px;
+	height: 40px;
+}
+.search-icon:hover {
+	cursor: pointer;
+}
+
+.user-gallery {
+	margin-top: 10px;
+}
+
+.button-holder {
+	background-color: transparent;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+
+.button-holder .button {
+	text-align: center;
+}
+/* .users-gallery {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+	flex-wrap: wrap;
+}
+
+.users-gallery .gallery-item {
+	width: fit-content;
+}
+
+.users-gallery .gallery-image {
+	max-width: 20vw;
+	min-width: 20vw;
+}
+
+.users-gallery .gallery-item-info p {
+	display: block;
+}
+
+.profile-content .user-gallery {
+	width: 100%;
+}
+
+
+
+.profile-content .gallery-container {
+	background-image: none;
+} */
+
+/* .artist-func {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 75%;
+} */
+
 /* mint: #00FFC5
 
 complementary: #FF00C5

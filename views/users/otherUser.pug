@@ -1,13 +1,16 @@
 extends ../layouts/layout
 
 block content
-    div(id="otherUser" class="container other-user-container")
+    div(id="otherUser" class="container other-user-container profile-content")
         if (session.loggedin)
             p Welcome to #{user.username}'s profile!
             - if(selfUser.following.includes(user.username))
                 button(id="unfollowBtn" class="button" onclick="unfollow('" + user.username + "')") Unfollow
             - else
                 button(id="followBtn" class="button" onclick="follow('" + user.username + "')") Follow
+
+            div(class="user-gallery")
+                include ../partials/gallery.pug
         else
             p you must login to view this page
     script("src"="/js/otherUser-script.js")

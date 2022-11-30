@@ -15,7 +15,7 @@ const artSchema = new mongoose.Schema(
 				default: [],
 			},
 		],
-		comments: [{ user: String, comment: String }],
+		comments: [{ user: String, comment: String }, { default: [] }],
 		default: [],
 	},
 	{ collection: "art" }

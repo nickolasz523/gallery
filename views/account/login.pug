@@ -5,11 +5,13 @@ block content
         div(id="loginCardContent" class="card-content")
             div(id="loginCardTitle" class="card-title")    
                 h1 enter credentials
-            if session.loginErrorMessage
-                p#Error= session.loginErrorMessage
+            //- if session.loginErrorMessage
+            //-     p#Error= session.loginErrorMessage
             form(action="/login" method="post" class="regLogForm")
                 div(class="account-info" id="login-info")
                     include ../partials/form
                 div(class="btn-container" id="cancel-login")
                     a#cancelBtn(href="/") Cancel
-                    input(class="accountBtn" id="loginBtn" type="submit" value="Login")
+                    input(class="accountBtn" id="loginBtn" type="button" value="Login" onclick="login()")
+            div(class="hide errors" id="loginError")
+    script(src="/js/login-script.js")

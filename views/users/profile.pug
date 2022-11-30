@@ -1,7 +1,5 @@
 extends ../layouts/layout.pug
 
-
-
 block content
     if(user.accountType === "artist")
         - var change = "become a patron"
@@ -18,6 +16,21 @@ block content
                 strong #{user.accountType}
             form(method="post" action=changeLink+ "?_method=PUT")
                 input(type="submit" value=change class="switchBtn button")
-            button(href="/followings" class="button" id="followingBtn") View your following
-
+            button(href="/following" class="button" id="followingBtn") View your following
+            button(href="/reviews" class="button" id="reviewBtn") View your reviews
+            if(user.accountType === "artist")
+                div(class="artist-func")
+                    div(class="workshop-container")
+                        button(href="/workshops" class="button" id="createWorkshopBtn") Create a workshop
+                    div(class="add-image")
+                        input(type="text" id="imgLink" placeholder="Enter an image link")
+                        input(type="text" id="imgName" placeholder="Enter an image name")
+                        input(type="text" id="imgYear" placeholder="Enter an image year")
+                        input(type="text" id="imgCategory" placeholder="Enter an image category")
+                        input(type="text" id="imgMedium" placeholder="Enter an image medium")
+                        input(type="text" id="imgDescription" placeholder="Enter an image description")
+                        button(class="button" id="addImageBtn" onclick="uploadImage()") Add image
+                
+            div(class="user-gallery")
+                include ../partials/gallery.pug
     script(src="/js/profile-script.js")

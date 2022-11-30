@@ -7,7 +7,7 @@ block content
             ul(class="following-list")
                 each user in following
                     li
-                    a(href="/users/" + user)= following
+                        a(href="/users/" + user)= user
         else 
             p #{errorMessage}
     else

@@ -1,0 +1,10 @@
+extends ../layouts/layout.pug
+
+
+block content
+    if gallery.length == 0
+        p You have not reviewed anything
+    else
+        div(class="user-gallery")
+            include ../partials/gallery.pug
+    

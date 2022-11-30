@@ -1,41 +1,16 @@
 extends ../layouts/layout
 
 block content
-    //- if session.loggedin
-    if !errorMessage     
-        div(class="gallery-container")
-            ul
-            each item in gallery
-                div(class="gallery-item")
-                    p(class="gallery-item-name")= item.name
-                    img(src=item.image class="gallery-image" onclick="clickImage('" + item._id + "')" loading="lazy")
-                    div(class="gallery-item-info")
-                        a(href=`/users/${item.artist}`) #{item.artist}
-                        p(class="gallery-item-year") #{item.year}
-                        p(class="gallery-item-category") #{item.category}
-                        p(class="gallery-item-medium") #{item.medium}
-                    div(class="like-comment-container")
-                        div(class="like-container like-comment")
-                            if item.likes.includes(session.username)
-                                i(class="fas fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
-                            else
-                                i(class="far fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
-                            span(class="num-likes-comments" id=`${item._id}-num-likes`)= item.likes.length
-                        div(class="comment-container like-comment")
-                            i(class="far fa-comment" onclick="comment('" + item._id + "')")
-                            span(class="num-likes-comments" id=`${item._id}-num-comments`)= item.comments.length
-                    div(class="comment-section" id=`${item._id}-comment-section`)
-                        input(type="text" class="comment-input" id=`${item._id}-comment` placeholder="Add a comment...")
-                        button(class="comment-btn button" id="addComment" disabled="true" onclick=`postComment("${item._id}", "${session.username}")`) Post
-                    div(class="comment-list" id=`${item._id}-comment-list`)
-                        p(class="comment-title") Comments
-                        each comment in item.comments
-                            div(class="comment")
-                                a(class="comment-user" href=`/users/${comment.user}`)= comment.user
-                                p(class="comment-text")= comment.comment
-    else 
-            p #{errorMessage}
-    //- else
-    //-     p You must be logged in to view your following!
-
-    script("src"="/js/gallery-script.js")
+    div(class="gallery")
+        div(class="search-container")
+            input(type="text" class="search-input" placeholder="artist, artwork, medium, category")
+            select(class="search-select")
+                option(value="artist") Artist
+                option(value="name") Artwork Name
+                option(value="medium") Medium
+                option(value="category") Category
+                option("value"= "year") Year
+            i(class="fa-solid fa-magnifying-glass search-icon" onclick="search()")
+        script(src="/js/search-script.js")
+        include ../partials/gallery
+    

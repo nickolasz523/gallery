@@ -7,9 +7,11 @@ block nav
                 li
                     a("href"="/logout" class="navOther") Logout
                 li
-                    a("href"="/users/" + session.username class="navOther") Profile
-                li
                     a("href"="/gallery" class="navOther") Gallery
+                li
+                    a("href"="/search" class="navOther") Search
+                li
+                    a("href"="/users/" + session.username class="navOther") Profile
         else
             ul(class="nav-links")
                 li
