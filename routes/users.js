@@ -316,51 +316,70 @@ router.post("/:username/workshop", async (req, res) => {
 });
 
 router.delete("/:username/notifications/delete", async (req, res) => {
-	let user;
-	// delete users notifications
-	try {
-		user = await User.findOne({ username: req.session.username });
-	} catch {
-		res.status(500);
-		res.send("Server error");
+	if (req.session.username == req.params.username) {
+		let user;
+		try {
+			user = await User.findOne({ username: req.session.username });
+		} catch {
+			res.status(500);
+			res.send("Server error");
+			return;
+		}
+		try {
+			await user.updateOne({
+				$set: { notifications: [] },
+			});
+		} catch {
+			res.status(500);
+			res.send("Server error");
+			return;
+		}
+		res.status(200);
+		res.end();
+	} else {
+		res.status(403);
+		res.redirect("/users/" + req.params.username);
 		return;
 	}
-	try {
-		await user.updateOne({
-			$set: { notifications: [] },
-		});
-	} catch {
-		res.status(500);
-		res.send("Server error");
-		return;
-	}
-	res.status(200);
-	res.end();
 });
 
 router.get("/:username/workshops", async (req, res) => {
-	paramUsername = req.params.username;
-	let user;
-	let workshops;
-	try {
-		user = await User.findOne({ username: paramUsername });
-	} catch {
-		res.status(500);
-		res.end();
-		return;
-	}
-	try {
-		workshops = await Workshop.find({ workshopUser: paramUsername });
-	} catch {
-		res.status(500);
-		res.end();
-		return;
-	}
+	if (req.session.loggedin) {
+		let selfUser;
+		paramUsername = req.params.username;
+		let user;
+		let workshops;
+		try {
+			user = await User.findOne({ username: paramUsername });
+		} catch {
+			res.status(500);
+			res.end();
+			return;
+		}
+		try {
+			workshops = await Workshop.find({ workshopUser: paramUsername });
+		} catch {
+			res.status(500);
+			res.end();
+			return;
+		}
+		try {
+			selfUser = await User.findOne({ username: req.session.username });
+		} catch {
+			res.status(500);
+			res.end();
+			return;
+		}
 
-	res.render("users/workshops", {
-		session: req.session,
-		user: user,
-		workshops: workshops,
-	});
+		res.render("users/workshops", {
+			session: req.session,
+			user: user,
+			workshops: workshops,
+			selfUser: selfUser,
+		});
+	} else {
+		res.redirect("/users/" + req.params.username);
+	}
 });
+
 module.exports = router;

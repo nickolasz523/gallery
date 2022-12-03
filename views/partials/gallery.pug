@@ -6,7 +6,7 @@ div(class="page-gallery")
                 img(src=item.image class="gallery-image" onclick="clickImage('" + item._id + "')" loading="lazy")
                 div(class="gallery-item-info")
                     a(href=`/users/${item.artist}`) Artist: #{item.artist}
-                    a(class="gallery-item-year" href=`gallery?search=${item.year}&type=year`) Year: #{item.year}
+                    a(class="gallery-item-year" href=`/gallery?search=${item.year}&type=year`) Year: #{item.year}
                     a(class="gallery-item-category" href=`/gallery?search=${item.category}&type=category`) Category: #{item.category}
                     a(class="gallery-item-medium" href=`/gallery?search=${item.medium}&type=medium`) Medium: #{item.medium}
                     p(class="gallery-item-description") Description: #{item.description}

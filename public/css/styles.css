@@ -299,7 +299,6 @@ body {
 
 .gallery-image {
 	width: 100%;
-	max-height: 40vh;
 }
 
 .gallery-image:hover {
@@ -541,4 +540,9 @@ i {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+}
+
+.workshop-button {
+	width: 10%;
+	font-size: 16px;
 }

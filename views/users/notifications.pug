@@ -6,7 +6,7 @@ block content
         |  has posted a new #{notification.notificationType}
         |  
         if(notification.notificationType == "workshop")
-            a(class=notification.workshopName href="/workshops/"+notification.notificationID) #{notification.notificationName}
+            a(class=notification.workshopName href="/users/"+notification.user+"/workshops") #{notification.notificationName}
         else
             a(class=notification.artworkName href="/gallery/"+notification.notificationID) #{notification.notificationName}
         br

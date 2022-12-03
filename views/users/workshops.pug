@@ -7,5 +7,14 @@ block content
                 p(class="workshop-name") 
                     strong Name:
                     |  #{workshop.workshopName}
-                if (workshop.workshopUser != session.username)
-                    button(class="workshop-button button" id=`${workshop._id}-enroll` onclick=`joinWorkshop("${workshop._id}", "${session.username}")`) Enroll
+
+                
+                    if(workshop.workshopUser != session.username && selfUser.enrolledWorkshops.includes(workshop._id))
+                        button(class="workshop-button button" id=`${workshop._id}-enroll` onclick=`enrollWorkshop("${workshop._id}", "${session.username}")`) Unenroll
+                    else if(workshop.workshopUser != session.username && !selfUser.enrolledWorkshops.includes(workshop._id))
+                        button(class="workshop-button button" id=`${workshop._id}-enroll` onclick=`enrollWorkshop("${workshop._id}", "${session.username}")`) Enroll
+                    else
+                        |    (your workshop)
+                
+
+    script(src="/js/workshops-script.js")

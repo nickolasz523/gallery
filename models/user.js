@@ -67,7 +67,9 @@ const userSchema = new mongoose.Schema({
 	],
 	enrolledWorkshops: [
 		{
-			workshopName: String,
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Workshops",
+			default: [],
 		},
 	],
 });
