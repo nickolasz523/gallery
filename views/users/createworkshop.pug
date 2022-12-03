@@ -1,0 +1,11 @@
+extends ../layouts/layout.pug
+
+block content
+    div(class="workshop-container")
+        div(class="create-workshop-container")
+            if user.username == session.username
+                input(type="text" id="workshopName" class="text-input" placeholder="Enter a workshop name" class="workshop-input")
+                button(class="workshop-button button" id="createWorkshopBtn" onclick="createWorkshop()") Create Workshop
+                
+
+    script(src="/js/workshop-script.js")

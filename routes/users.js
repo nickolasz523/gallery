@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const Art = require("../models/art");
+const Workshop = require("../models/workshop");
 
 router.get("/", (req, res) => {
-	res.send("page for users");
+	res.redirect("/users/" + req.session.username);
 });
 
 router.get("/:username", async (req, res) => {
@@ -20,10 +21,8 @@ router.get("/:username", async (req, res) => {
 				session: req.session,
 			});
 		} else {
-			res.status(200);
 			let art = await Art.find({ artist: paramUsername });
 			if (paramUsername === req.session.username) {
-				//find art that user has in art
 				res.render("users/profile", {
 					user: user,
 					session: req.session,
@@ -41,9 +40,8 @@ router.get("/:username", async (req, res) => {
 				});
 			}
 		}
-	} catch {
-		res.status(500);
-		console.log("error looking for user");
+	} catch (err) {
+		res.sendStatus(500, "Error looking for user.");
 	}
 });
 
@@ -58,11 +56,30 @@ router.get("/:username/reviews", async (req, res) => {
 			});
 			res.render("users/reviews", { gallery: art, session: req.session });
 		} catch (err) {
-			res.sendStatus(500, "Error finding art.");
+			res.status(500);
+			res.end();
 		}
 	} else {
 		res.status(403);
-		res.send("You do not have permission to view this page.");
+		res.redirect("/users/" + req.params.username);
+	}
+});
+
+router.get("/:username/notifications", async (req, res) => {
+	if (req.session.username === req.params.username) {
+		try {
+			let user = await User.findOne({ username: req.params.username });
+			res.render("users/notifications", {
+				notifications: user.notifications,
+				session: req.session,
+			});
+		} catch (err) {
+			res.status(500);
+			res.end();
+		}
+	} else {
+		res.status(403);
+		res.redirect("/users/" + req.params.username);
 	}
 });
 
@@ -83,13 +100,6 @@ router.put("/:username/update/:type", async (req, res) => {
 	}
 	res.redirect("/users/" + paramUsername);
 });
-
-// router.get("/:username/:type", (req, res) => {
-// 	paramUsername = req.params.username;
-// 	paramType = req.params.type;
-
-// 	res.redirect("/users/" + paramUsername);
-// });
 
 router.get("/:username/following", async (req, res) => {
 	paramUsername = req.params.username;
@@ -205,4 +215,152 @@ router.put("/:username/unfollow", async (req, res) => {
 	}
 });
 
+router.get("/:username/createworkshop", async (req, res) => {
+	paramUsername = req.params.username;
+	let user;
+	if (paramUsername === req.session.username) {
+		try {
+			user = await User.findOne({ username: paramUsername });
+		} catch {
+			res.status(500);
+			res.end();
+			return;
+		}
+		console.log(user.workshops);
+		res.render("users/createworkshop", {
+			session: req.session,
+			user: user,
+			workshops: user.workshops,
+		});
+	} else {
+		res.status(403);
+		res.redirect("/users/" + paramUsername);
+	}
+});
+
+router.post("/:username/workshop", async (req, res) => {
+	paramUsername = req.params.username;
+	let user;
+	let newid = mongoose.Types.ObjectId();
+	if (paramUsername === req.session.username) {
+		try {
+			user = await User.findOne({ username: paramUsername });
+		} catch {
+			res.status(500);
+			res.send("Server error");
+			return;
+		}
+	} else {
+		res.status(403);
+		res.send("You are not authorized to view this page.");
+		return;
+	}
+	// check if workshop name is unique
+	console.log(user.workshops);
+
+	for (let i = 0; i < user.workshops.length; i++) {
+		if (user.workshops[i].workshopName == req.body.workshopName) {
+			res.status(400);
+			res.send("Workshop name already exists.");
+			return;
+		}
+	}
+
+	let workshop = new Workshop({
+		_id: newid,
+		workshopName: req.body.workshopName,
+		workshopUser: req.session.username,
+	});
+	try {
+		await workshop.save();
+	} catch (err) {
+		console.log(err);
+		res.status(500);
+		res.send("Server error");
+		return;
+	}
+	try {
+		await user.workshops.push({
+			workshopName: req.body.workshopName,
+			_id: newid,
+		});
+		await user.save();
+	} catch (err) {
+		res.status(500);
+		res.send("Server error");
+		console.log(err);
+		return;
+	}
+
+	let followers = user.followers;
+	for (let i = 0; i < followers.length; i++) {
+		let follower = await User.findOne({ username: followers[i] });
+		try {
+			await follower.notifications.push({
+				notificationType: "workshop",
+				user: req.session.username,
+				notificationID: newid,
+				notificationName: req.body.workshopName,
+			});
+			await follower.save();
+		} catch (err) {
+			console.log(err);
+			res.status(500);
+			res.send("Server error");
+			return;
+		}
+	}
+
+	res.status(201);
+	res.end();
+});
+
+router.delete("/:username/notifications/delete", async (req, res) => {
+	let user;
+	// delete users notifications
+	try {
+		user = await User.findOne({ username: req.session.username });
+	} catch {
+		res.status(500);
+		res.send("Server error");
+		return;
+	}
+	try {
+		await user.updateOne({
+			$set: { notifications: [] },
+		});
+	} catch {
+		res.status(500);
+		res.send("Server error");
+		return;
+	}
+	res.status(200);
+	res.end();
+});
+
+router.get("/:username/workshops", async (req, res) => {
+	paramUsername = req.params.username;
+	let user;
+	let workshops;
+	try {
+		user = await User.findOne({ username: paramUsername });
+	} catch {
+		res.status(500);
+		res.end();
+		return;
+	}
+	try {
+		workshops = await Workshop.find({ workshopUser: paramUsername });
+	} catch {
+		res.status(500);
+		res.end();
+		return;
+	}
+
+	res.render("users/workshops", {
+		session: req.session,
+		user: user,
+		workshops: workshops,
+	});
+});
 module.exports = router;

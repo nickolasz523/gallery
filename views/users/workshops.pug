@@ -1,0 +1,11 @@
+extends ../layouts/layout
+
+block content
+    div(class="workshops-container")
+        each workshop in workshops
+            div(class="workshop-container-ind" id=`${workshop._id}-workshop`)
+                p(class="workshop-name") 
+                    strong Name:
+                    |  #{workshop.workshopName}
+                if (workshop.workshopUser != session.username)
+                    button(class="workshop-button button" id=`${workshop._id}-enroll` onclick=`joinWorkshop("${workshop._id}", "${session.username}")`) Enroll

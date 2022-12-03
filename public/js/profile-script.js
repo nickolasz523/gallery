@@ -18,6 +18,32 @@ function redirectReviews() {
 	window.location = location;
 }
 
+document
+	.getElementById("notificationBtn")
+	.addEventListener("click", redirectNotifications);
+
+document
+	.getElementById("workshopBtn")
+	.addEventListener("click", redirectCreateWorkshop);
+
+function redirectCreateWorkshop() {
+	let location = window.location.href;
+	location = location += "/createworkshop";
+	console.log(location);
+	window.location = location;
+}
+document.getElementById("viewWorkshopsBtn").addEventListener("click", () => {
+	window.location.href += "/workshops";
+});
+
+function redirectNotifications() {
+	console.log("YOOO");
+	let location = window.location.href;
+	location = location += "/notifications";
+	console.log(location);
+	window.location = location;
+}
+
 function uploadImage() {
 	// alert("hi!");
 	let imgLink = document.getElementById("imgLink").value;
@@ -57,8 +83,12 @@ function uploadImage() {
 		if (this.readyState == 4 && this.status == 201) {
 			alert("Image uploaded successfully!");
 			window.location.reload();
+		} else if (this.readyState == 4 && this.status == 400) {
+			alert("Image name already exists");
+			window.location.reload();
 		} else if (this.readyState == 4 && this.status == 403) {
-			alert("Image upload failed");
+			alert("You are not an artist");
+			window.location.reload();
 		} else {
 			console.log(this.status);
 		}

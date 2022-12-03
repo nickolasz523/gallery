@@ -43,11 +43,17 @@ router.get("/", async (req, res) => {
 				let art = await Art.find({
 					[type]: { $regex: req.query.search, $options: "i" },
 				})
+
 					.skip((req.query.page - 1) * 10)
 					.limit(10);
+				let count = await Art.countDocuments({
+					[type]: { $regex: req.query.search, $options: "i" },
+				});
 				res.render("gallery/gallery", {
 					gallery: art,
 					session: req.session,
+					count: count,
+					page: req.query.page,
 				});
 				console.log("yo");
 			} catch (err) {
@@ -157,7 +163,9 @@ router.post("/upload", async (req, res) => {
 		let name = req.body.imgName;
 		let findName = await Art.findOne({ name: name });
 		if (findName) {
-			res.sendStatus(400, "Name already exists");
+			res.status(400);
+			res.send("Name already exists");
+			res.end();
 			return;
 		}
 
@@ -178,11 +186,37 @@ router.post("/upload", async (req, res) => {
 			{ username: req.session.username },
 			{ $push: { art: newId } }
 		);
+
+		//add notifications in all followers accounts
+		let followers = user.followers;
+		// change from object to array
+		let followersArray = Object.keys(followers).map(
+			(key) => followers[key]
+		);
+
+		for (let i = 0; i < followersArray.length; i++) {
+			follower = await User.findOne({
+				username: followersArray[i],
+			});
+			console.log(follower.username);
+			await follower.updateOne({
+				$push: {
+					notifications: {
+						notificationType: "art",
+						user: req.session.username,
+						notificationID: newId,
+						notificationName: name,
+					},
+				},
+			});
+		}
 	} catch (err) {
 		res.sendStatus(500, "Server error");
+		console.log(err);
 		return;
 	}
-	res.sendStatus(201);
+	res.status(201);
+	res.send();
 });
 
 router.get("/search", async (req, res) => {
@@ -197,6 +231,28 @@ router.get("/search", async (req, res) => {
 		res.sendStatus(400, "Invalid search type");
 		res.end();
 	}
+});
+
+router.get("/:id", async (req, res) => {
+	if (!req.session.loggedin) {
+		res.redirect("/login");
+		return;
+	}
+	let id = req.params.id;
+	let art;
+	try {
+		art = await Art.findById(id);
+	} catch (err) {
+		res.sendStatus(500);
+		return;
+	}
+	if (!art) {
+		res.sendStatus(404);
+		return;
+	}
+	res.status(200);
+	art = [art];
+	res.render("gallery/gallery", { gallery: art, session: req.session });
 });
 
 module.exports = router;

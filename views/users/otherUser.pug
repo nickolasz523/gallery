@@ -8,6 +8,7 @@ block content
                 button(id="unfollowBtn" class="button" onclick="unfollow('" + user.username + "')") Unfollow
             - else
                 button(id="followBtn" class="button" onclick="follow('" + user.username + "')") Follow
+            button(href="/users/" + user.username + "/workshops" class="button" id="viewWorkshopsBtn") View workshops
 
             div(class="user-gallery")
                 include ../partials/gallery.pug

@@ -18,10 +18,13 @@ block content
                 input(type="submit" value=change class="switchBtn button")
             button(href="/following" class="button" id="followingBtn") View your following
             button(href="/reviews" class="button" id="reviewBtn") View your reviews
+            button(href="/notifications" class="button" id="notificationBtn") View your notifications
+            button(href="/users/" + user.username + "/workshops" class="button" id="viewWorkshopsBtn") View your workshops
+
             if(user.accountType === "artist")
                 div(class="artist-func")
                     div(class="workshop-container")
-                        button(href="/workshops" class="button" id="createWorkshopBtn") Create a workshop
+                        button(class="button" id="workshopBtn") Create a workshop
                     div(class="add-image")
                         input(type="text" id="imgLink" placeholder="Enter an image link")
                         input(type="text" id="imgName" placeholder="Enter an image name")
@@ -30,7 +33,8 @@ block content
                         input(type="text" id="imgMedium" placeholder="Enter an image medium")
                         input(type="text" id="imgDescription" placeholder="Enter an image description")
                         button(class="button" id="addImageBtn" onclick="uploadImage()") Add image
-                
+            if(user.accountType === "patron")
+                p(id="workshopBtn" style="display: none")
             div(class="user-gallery")
                 include ../partials/gallery.pug
     script(src="/js/profile-script.js")

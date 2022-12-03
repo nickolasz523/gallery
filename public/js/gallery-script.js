@@ -1,5 +1,6 @@
 function clickImage(id) {
-	console.log(id);
+	let location = `/gallery/${id}`;
+	window.location = location;
 }
 
 function checkLength(input) {

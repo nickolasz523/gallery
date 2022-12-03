@@ -24,10 +24,6 @@
 	font-family: "Poppins", sans-serif;
 	background-color: var(--light);
 }
-html,
-body {
-	overflow: auto;
-}
 
 body {
 	margin: 0;
@@ -231,7 +227,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
 .profile-content form {
 	display: flex;
@@ -305,6 +300,10 @@ body {
 .gallery-image {
 	width: 100%;
 	max-height: 40vh;
+}
+
+.gallery-image:hover {
+	cursor: pointer;
 }
 
 .gallery-item-info {
@@ -433,6 +432,11 @@ body {
 	margin: 0 0 0 10px;
 }
 
+.button-holder a {
+	width: 25%;
+	margin: 0 10px 0 10px;
+}
+
 i {
 	font-size: 20px;
 }
@@ -511,53 +515,30 @@ i {
 .button-holder .button {
 	text-align: center;
 }
-/* .users-gallery {
+
+.create-workshop-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: left;
-	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.users-gallery .gallery-item {
-	width: fit-content;
+#createWorkshopBtn {
+	width: 25%;
 }
 
-.users-gallery .gallery-image {
-	max-width: 20vw;
-	min-width: 20vw;
-}
-
-.users-gallery .gallery-item-info p {
-	display: block;
-}
-
-.profile-content .user-gallery {
+.workshops-container {
 	width: 100%;
-}
-
-
-
-.profile-content .gallery-container {
-	background-image: none;
-} */
-
-/* .artist-func {
-	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 75%;
-} */
+}
 
-/* mint: #00FFC5
-
-complementary: #FF00C5
-
-seafoam: #619C86
-
-light: #E6FFF5
-
-dark: #386C5F
- */
+.workshop-container-ind {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}

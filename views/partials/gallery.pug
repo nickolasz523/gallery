@@ -12,9 +12,9 @@ div(class="page-gallery")
                     p(class="gallery-item-description") Description: #{item.description}
                 div(class="like-comment-container")
                     div(class="like-container like-comment")
-                        if item.likes.includes(session.username)
+                        - if (item.likes.includes(session.username))
                             i(class="fas fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
-                        else
+                        - else
                             i(class="far fa-heart" id=`${item._id}-heart` onclick=`like("${item._id}", "${session.username}")`)
                         span(class="num-likes-comments" id=`${item._id}-num-likes`)= item.likes.length
                     div(class="comment-container like-comment")

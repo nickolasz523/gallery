@@ -14,6 +14,10 @@ html
             include ../partials/nav
 
         block content
+            if(session.errorMessage)
+                div(class="error-message")
+                    p #{session.errorMessage}
+
         
         block footer
             include ../partials/footer

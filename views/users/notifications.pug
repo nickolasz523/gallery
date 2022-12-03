@@ -1,0 +1,14 @@
+extends ../layouts/layout
+
+block content
+    each notification in notifications
+        a(class=notification.username href="/users/"+notification.user) #{notification.user}
+        |  has posted a new #{notification.notificationType}
+        |  
+        if(notification.notificationType == "workshop")
+            a(class=notification.workshopName href="/workshops/"+notification.notificationID) #{notification.notificationName}
+        else
+            a(class=notification.artworkName href="/gallery/"+notification.notificationID) #{notification.notificationName}
+        br
+
+    script(src="/js/notifications-script.js")

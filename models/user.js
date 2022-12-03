@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//requrie art schema
 const Art = require("./art");
 
 const userSchema = new mongoose.Schema({
@@ -51,10 +50,24 @@ const userSchema = new mongoose.Schema({
 			default: [],
 		},
 	],
-	notificatons: [
+	notifications: [
 		{
 			user: String,
-			type: String,
+			notificationType: String,
+			notificationID: mongoose.Schema.Types.ObjectId,
+			notificationName: String,
+		},
+		{ default: [] },
+	],
+
+	workshops: [
+		{
+			workshopName: String,
+		},
+	],
+	enrolledWorkshops: [
+		{
+			workshopName: String,
 		},
 	],
 });
