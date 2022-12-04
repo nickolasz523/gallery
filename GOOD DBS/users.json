@@ -1,0 +1,611 @@
+[{
+  "_id": {
+    "$oid": "638b06dc4604b7bf59f5116e"
+  },
+  "accountType": "artist",
+  "username": "pablo",
+  "password": "picasso",
+  "following": [],
+  "art": [
+    {
+      "$oid": "638b07284604b7bf59f51176"
+    },
+    {
+      "$oid": "638b078a4604b7bf59f51183"
+    }
+  ],
+  "likes": [
+    {
+      "$oid": "638b08734604b7bf59f51199"
+    },
+    {
+      "$oid": "638b08ea4604b7bf59f511d2"
+    },
+    {
+      "$oid": "638b09644604b7bf59f511ef"
+    },
+    {
+      "$oid": "638b0aad4604b7bf59f51264"
+    },
+    {
+      "$oid": "638b0ae54604b7bf59f5126c"
+    },
+    {
+      "$oid": "638b0d454604b7bf59f51367"
+    }
+  ],
+  "followers": [
+    "helen",
+    "kick",
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [
+    {
+      "art": {
+        "$oid": "638b0d6c4604b7bf59f5136f"
+      },
+      "comment": "This is like me during the blue period",
+      "_id": {
+        "$oid": "638b0f2f4604b7bf59f5150a"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b0e514604b7bf59f513d5"
+      },
+      "comment": "This is not a fruit",
+      "_id": {
+        "$oid": "638b0f354604b7bf59f5150f"
+      }
+    }
+  ],
+  "notifications": [],
+  "workshops": [],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "638b08144604b7bf59f51191"
+  },
+  "accountType": "artist",
+  "username": "helen",
+  "password": "dardik",
+  "following": [
+    "pablo"
+  ],
+  "art": [
+    {
+      "$oid": "638b08734604b7bf59f51199"
+    }
+  ],
+  "likes": [],
+  "followers": [
+    "kick",
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [],
+  "notifications": [],
+  "workshops": [
+    {
+      "workshopName": "Digital Art Creation",
+      "_id": {
+        "$oid": "638b08904604b7bf59f511a4"
+      }
+    }
+  ],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "638b08cb4604b7bf59f511ca"
+  },
+  "accountType": "artist",
+  "username": "keith",
+  "password": "harring",
+  "following": [],
+  "art": [
+    {
+      "$oid": "638b08ea4604b7bf59f511d2"
+    },
+    {
+      "$oid": "638b0f9d4604b7bf59f5156d"
+    }
+  ],
+  "likes": [
+    {
+      "$oid": "638b078a4604b7bf59f51183"
+    }
+  ],
+  "followers": [
+    "james",
+    "kick",
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [
+    {
+      "art": {
+        "$oid": "638b078a4604b7bf59f51183"
+      },
+      "comment": "I agree nick",
+      "_id": {
+        "$oid": "638b0f494604b7bf59f5152b"
+      }
+    }
+  ],
+  "notifications": [],
+  "workshops": [
+    {
+      "workshopName": "Draw like me!",
+      "_id": {
+        "$oid": "638b0f5c4604b7bf59f5153e"
+      }
+    },
+    {
+      "workshopName": "Don't be bad at drawing",
+      "_id": {
+        "$oid": "638b0f644604b7bf59f51553"
+      }
+    }
+  ],
+  "__v": 5
+},{
+  "_id": {
+    "$oid": "638b09164604b7bf59f511df"
+  },
+  "accountType": "artist",
+  "username": "joe",
+  "password": "Bro",
+  "following": [],
+  "art": [
+    {
+      "$oid": "638b09344604b7bf59f511e7"
+    },
+    {
+      "$oid": "638b09644604b7bf59f511ef"
+    },
+    {
+      "$oid": "638b09924604b7bf59f511f7"
+    },
+    {
+      "$oid": "638b09c04604b7bf59f511ff"
+    }
+  ],
+  "likes": [],
+  "followers": [
+    "james",
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [],
+  "notifications": [],
+  "workshops": [
+    {
+      "workshopName": "How to draw cats!",
+      "_id": {
+        "$oid": "638b0a2e4604b7bf59f5122e"
+      }
+    }
+  ],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "638b0a144604b7bf59f5121a"
+  },
+  "accountType": "artist",
+  "username": "james",
+  "password": "harden",
+  "following": [
+    "joe",
+    "keith"
+  ],
+  "art": [
+    {
+      "$oid": "638b0a894604b7bf59f5125c"
+    },
+    {
+      "$oid": "638b0aad4604b7bf59f51264"
+    },
+    {
+      "$oid": "638b0ae54604b7bf59f5126c"
+    },
+    {
+      "$oid": "638b0fd44604b7bf59f5159d"
+    }
+  ],
+  "likes": [
+    {
+      "$oid": "638b078a4604b7bf59f51183"
+    },
+    {
+      "$oid": "638b09c04604b7bf59f511ff"
+    },
+    {
+      "$oid": "638b09344604b7bf59f511e7"
+    },
+    {
+      "$oid": "638b0c064604b7bf59f5130a"
+    },
+    {
+      "$oid": "638b0d454604b7bf59f51367"
+    },
+    {
+      "$oid": "638b0cd74604b7bf59f5133a"
+    },
+    {
+      "$oid": "638b0e514604b7bf59f513d5"
+    },
+    {
+      "$oid": "638b0d9f4604b7bf59f51377"
+    }
+  ],
+  "followers": [
+    "nick",
+    "normal"
+  ],
+  "enrolledWorkshops": [
+    {
+      "$oid": "638b0a2e4604b7bf59f5122e"
+    }
+  ],
+  "comments": [
+    {
+      "art": {
+        "$oid": "638b09c04604b7bf59f511ff"
+      },
+      "comment": "This is so real!",
+      "_id": {
+        "$oid": "638b0feb4604b7bf59f515e7"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b078a4604b7bf59f51183"
+      },
+      "comment": "yeah facts",
+      "_id": {
+        "$oid": "638b0ff24604b7bf59f515fa"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b0d9f4604b7bf59f51377"
+      },
+      "comment": "Me all the time",
+      "_id": {
+        "$oid": "638b10094604b7bf59f5164a"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b0c064604b7bf59f5130a"
+      },
+      "comment": "cool!",
+      "_id": {
+        "$oid": "638b10194604b7bf59f51670"
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f5c4604b7bf59f5153e"
+      },
+      "notificationName": "Draw like me!",
+      "_id": {
+        "$oid": "638b0f5c4604b7bf59f51547"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f644604b7bf59f51553"
+      },
+      "notificationName": "Don't be bad at drawing",
+      "_id": {
+        "$oid": "638b0f644604b7bf59f5155e"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "art",
+      "notificationID": {
+        "$oid": "638b0f9d4604b7bf59f5156d"
+      },
+      "notificationName": "Untitled",
+      "_id": {
+        "$oid": "638b0f9d4604b7bf59f5157d"
+      }
+    }
+  ],
+  "workshops": [
+    {
+      "workshopName": "Draw a basketball!",
+      "_id": {
+        "$oid": "638b0afa4604b7bf59f51275"
+      }
+    }
+  ],
+  "__v": 8
+},{
+  "_id": {
+    "$oid": "638b0bc64604b7bf59f512fa"
+  },
+  "accountType": "artist",
+  "username": "ash",
+  "password": "ketchum",
+  "following": [],
+  "art": [
+    {
+      "$oid": "638b0bed4604b7bf59f51302"
+    },
+    {
+      "$oid": "638b0c064604b7bf59f5130a"
+    },
+    {
+      "$oid": "638b0c2a4604b7bf59f51312"
+    },
+    {
+      "$oid": "638b0c704604b7bf59f5131f"
+    }
+  ],
+  "likes": [],
+  "followers": [
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [],
+  "notifications": [],
+  "workshops": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "638b0ca54604b7bf59f5132e"
+  },
+  "accountType": "artist",
+  "username": "nick",
+  "password": "z",
+  "following": [
+    "james"
+  ],
+  "art": [
+    {
+      "$oid": "638b0cd74604b7bf59f5133a"
+    },
+    {
+      "$oid": "638b0d454604b7bf59f51367"
+    },
+    {
+      "$oid": "638b0d6c4604b7bf59f5136f"
+    },
+    {
+      "$oid": "638b0d9f4604b7bf59f51377"
+    }
+  ],
+  "likes": [
+    {
+      "$oid": "638b0ae54604b7bf59f5126c"
+    },
+    {
+      "$oid": "638b0c064604b7bf59f5130a"
+    },
+    {
+      "$oid": "638b078a4604b7bf59f51183"
+    }
+  ],
+  "followers": [
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [
+    {
+      "art": {
+        "$oid": "638b0ae54604b7bf59f5126c"
+      },
+      "comment": "Wow I love James Harden!",
+      "_id": {
+        "$oid": "638b0de44604b7bf59f5138f"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b0c064604b7bf59f5130a"
+      },
+      "comment": "This is a cute pokemon",
+      "_id": {
+        "$oid": "638b0dec4604b7bf59f51399"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b078a4604b7bf59f51183"
+      },
+      "comment": "This is sad!",
+      "_id": {
+        "$oid": "638b0df64604b7bf59f513a7"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b09644604b7bf59f511ef"
+      },
+      "comment": "Cute cat!",
+      "_id": {
+        "$oid": "638b0dfc4604b7bf59f513ae"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b09644604b7bf59f511ef"
+      },
+      "comment": "This is soo cool!",
+      "_id": {
+        "$oid": "638b0e024604b7bf59f513b6"
+      }
+    },
+    {
+      "art": {
+        "$oid": "638b08ea4604b7bf59f511d2"
+      },
+      "comment": "I love keith!",
+      "_id": {
+        "$oid": "638b0e0d4604b7bf59f513c0"
+      }
+    }
+  ],
+  "notifications": [
+    {
+      "user": "james",
+      "notificationType": "art",
+      "notificationID": {
+        "$oid": "638b0fd44604b7bf59f5159d"
+      },
+      "notificationName": "James Harden in OKC",
+      "_id": {
+        "$oid": "638b0fd44604b7bf59f515b2"
+      }
+    }
+  ],
+  "workshops": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "638b0e294604b7bf59f513cd"
+  },
+  "accountType": "artist",
+  "username": "kick",
+  "password": "buttowski",
+  "following": [
+    "pablo",
+    "helen",
+    "keith"
+  ],
+  "art": [
+    {
+      "$oid": "638b0e514604b7bf59f513d5"
+    }
+  ],
+  "likes": [],
+  "followers": [
+    "normal"
+  ],
+  "enrolledWorkshops": [],
+  "comments": [],
+  "notifications": [
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f5c4604b7bf59f5153e"
+      },
+      "notificationName": "Draw like me!",
+      "_id": {
+        "$oid": "638b0f5c4604b7bf59f5154b"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f644604b7bf59f51553"
+      },
+      "notificationName": "Don't be bad at drawing",
+      "_id": {
+        "$oid": "638b0f644604b7bf59f51563"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "art",
+      "notificationID": {
+        "$oid": "638b0f9d4604b7bf59f5156d"
+      },
+      "notificationName": "Untitled",
+      "_id": {
+        "$oid": "638b0f9d4604b7bf59f51583"
+      }
+    }
+  ],
+  "workshops": [
+    {
+      "workshopName": "Draw cool stamps!",
+      "_id": {
+        "$oid": "638b0e594604b7bf59f513de"
+      }
+    }
+  ],
+  "__v": 7
+},{
+  "_id": {
+    "$oid": "638b0eb14604b7bf59f51428"
+  },
+  "accountType": "patron",
+  "username": "normal",
+  "password": "user",
+  "following": [
+    "pablo",
+    "helen",
+    "keith",
+    "joe",
+    "james",
+    "ash",
+    "nick",
+    "kick"
+  ],
+  "art": [],
+  "likes": [],
+  "followers": [],
+  "enrolledWorkshops": [],
+  "comments": [],
+  "notifications": [
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f5c4604b7bf59f5153e"
+      },
+      "notificationName": "Draw like me!",
+      "_id": {
+        "$oid": "638b0f5c4604b7bf59f5154e"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "workshop",
+      "notificationID": {
+        "$oid": "638b0f644604b7bf59f51553"
+      },
+      "notificationName": "Don't be bad at drawing",
+      "_id": {
+        "$oid": "638b0f644604b7bf59f51567"
+      }
+    },
+    {
+      "user": "keith",
+      "notificationType": "art",
+      "notificationID": {
+        "$oid": "638b0f9d4604b7bf59f5156d"
+      },
+      "notificationName": "Untitled",
+      "_id": {
+        "$oid": "638b0f9d4604b7bf59f51588"
+      }
+    },
+    {
+      "user": "james",
+      "notificationType": "art",
+      "notificationID": {
+        "$oid": "638b0fd44604b7bf59f5159d"
+      },
+      "notificationName": "James Harden in OKC",
+      "_id": {
+        "$oid": "638b0fd44604b7bf59f515b8"
+      }
+    }
+  ],
+  "workshops": [],
+  "__v": 11
+}]

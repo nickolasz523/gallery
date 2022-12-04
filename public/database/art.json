@@ -1,434 +1,462 @@
-[
-	{
-		"_id": { "$oid": "638b07284604b7bf59f51176" },
-		"name": "The Old Guitarist",
-		"artist": "pablo",
-		"year": "1903",
-		"category": "Old",
-		"medium": "Oil on panel",
-		"description": "The Old Guitarist is an oil painting by Pablo Picasso, which he created in late 1903 and early 1904. It depicts an elderly musician, a haggard man with threadbare clothing, who is hunched over his guitar while playing in the streets of Barcelona, Spain. It is on display at the Art Institute of Chicago as part of the Helen Birch Bartlett Memorial Collection.",
-		"image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Old_guitarist_chicago.jpg/270px-Old_guitarist_chicago.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b078a4604b7bf59f51183" },
-		"name": "Self-Portrait",
-		"artist": "pablo",
-		"year": "1901",
-		"category": "Old",
-		"medium": "Oil paint",
-		"description": " This Self-Portrait, painted during his second stay in Paris in the winter of 1901, was the end of a series and marked the beginning of the Blue Period.",
-		"image": "https://www.pablopicasso.org/images/paintings/self-portrait.jpg",
-		"likes": ["nick", "keith", "james"],
-		"comments": [
-			{
-				"user": "nick",
-				"comment": "This is sad!",
-				"_id": {
-					"$oid": "638b0df64604b7bf59f513a7"
-				}
-			},
-			{
-				"user": "keith",
-				"comment": "I agree nick",
-				"_id": {
-					"$oid": "638b0f494604b7bf59f5152b"
-				}
-			},
-			{
-				"user": "james",
-				"comment": "yeah facts",
-				"_id": {
-					"$oid": "638b0ff24604b7bf59f515fa"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b08734604b7bf59f51199" },
-		"name": "Friends",
-		"artist": "helen",
-		"year": "2021",
-		"category": "Vibrant",
-		"medium": "Digital",
-		"description": "A vibrant digital painting by Helen Dardik",
-		"image": "https://images.squarespace-cdn.com/content/v1/5c9137ce4d546e1df0b2e214/1554440186621-BETIPIXJ7UR8ZL433QA0/helen_dardik_illustration_1.jpg",
-		"likes": ["pablo"],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b08ea4604b7bf59f511d2" },
-		"name": "Icons 5",
-		"artist": "keith",
-		"year": "1990",
-		"category": "Vibrant",
-		"medium": "Drawing",
-		"description": "An icon by Keith",
-		"image": "https://www.haring.com/!/wp-content/uploads/2012/12/icons5.jpg",
-		"likes": ["pablo"],
-		"comments": [
-			{
-				"user": "nick",
-				"comment": "I love keith!",
-				"_id": { "$oid": "638b0e0d4604b7bf59f513c0" }
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b09344604b7bf59f511e7"
-		},
-		"name": "cat",
-		"artist": "joe",
-		"year": "2000",
-		"category": "Y2K",
-		"medium": "Digital",
-		"description": "A cool cat from pinterest!",
-		"image": "https://i.pinimg.com/564x/0d/ee/9e/0dee9eda79749fafd239fbbffb069967.jpg",
-		"likes": ["james"],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b09644604b7bf59f511ef" },
-		"name": "HEADPHONES",
-		"artist": "joe",
-		"year": "2022",
-		"category": "cute",
-		"medium": "pencil",
-		"description": "cat with headphones",
-		"image": "https://i.pinimg.com/564x/eb/7a/96/eb7a96ac6b3c0d298df2e4a0d003b0f1.jpg",
-		"likes": ["pablo"],
-		"comments": [
-			{
-				"user": "nick",
-				"comment": "Cute cat!",
-				"_id": { "$oid": "638b0dfc4604b7bf59f513ae" }
-			},
-			{
-				"user": "nick",
-				"comment": "This is soo cool!",
-				"_id": {
-					"$oid": "638b0e024604b7bf59f513b6"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b09924604b7bf59f511f7" },
-		"name": "gr",
-		"artist": "joe",
-		"year": "2000",
-		"category": "y2k",
-		"medium": "pencil",
-		"description": "cat playing guitar, someone plug him in",
-		"image": "https://i.pinimg.com/564x/5d/f0/1d/5df01dbab203bfddce05bbc15a3e3bd4.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": { "$oid": "638b09c04604b7bf59f511ff" },
-		"name": "more music",
-		"artist": "joe",
-		"year": "2014",
-		"category": "cute",
-		"medium": "pencil",
-		"description": "More cats!",
-		"image": "https://i.pinimg.com/564x/63/9c/d4/639cd4b120dbd48770ec4672298b63f6.jpg",
-		"likes": ["james"],
-		"comments": [
-			{
-				"user": "james",
-				"comment": "This is so real!",
-				"_id": { "$oid": "638b0feb4604b7bf59f515e7" }
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0a894604b7bf59f5125c"
-		},
-		"name": "James Harden in Philly",
-		"artist": "james",
-		"year": "2022",
-		"category": "Basketball",
-		"medium": "Photo",
-		"description": "James Harden dribbling a basketball!",
-		"image": "https://www.si.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTg5MDU2Njc0MTMxMDkzMzIx/james-harden-76ers-raptors.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0aad4604b7bf59f51264"
-		},
-		"name": "James Harden in Brooklyn",
-		"artist": "james",
-		"year": "2021",
-		"category": "Basketball",
-		"medium": "Photo",
-		"description": "James harden looking cool!",
-		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Harden_dribbling_midcourt%2C_Cavaliers_vs_Nets_on_January_17%2C_2022_%28cropped%29.jpg/1200px-Harden_dribbling_midcourt%2C_Cavaliers_vs_Nets_on_January_17%2C_2022_%28cropped%29.jpg",
-		"likes": ["pablo"],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0ae54604b7bf59f5126c"
-		},
-		"name": "James Harden in Houston",
-		"artist": "james",
-		"year": "2020",
-		"category": "Basketball",
-		"medium": "Photo",
-		"description": "James harden after hitting a crazy three with Jordan Clarkson in the back looking annoyed!",
-		"image": "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTcxNDUzMzI1NDY2Njc0NjU5/james-harden-rockets-numbers.jpg",
-		"likes": ["nick", "pablo"],
-		"comments": [
-			{
-				"user": "nick",
-				"comment": "Wow I love James Harden!",
-				"_id": {
-					"$oid": "638b0de44604b7bf59f5138f"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0bed4604b7bf59f51302"
-		},
-		"name": "Rowlett",
-		"artist": "ash",
-		"year": "2022",
-		"category": "Pokemon",
-		"medium": "Digital",
-		"description": "Rowlett flying!",
-		"image": "https://legends.pokemon.com/assets/pokemon/pokemon_rowlet.png",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0c064604b7bf59f5130a"
-		},
-		"name": "Eevee",
-		"artist": "ash",
-		"year": "2019",
-		"category": "Pokemon",
-		"medium": "Digital",
-		"description": "Eevee looking cute",
-		"image": "https://pokemonletsgo.pokemon.com/assets/img/common/char-eevee.png",
-		"likes": ["nick", "james"],
-		"comments": [
-			{
-				"user": "nick",
-				"comment": "This is a cute pokemon",
-				"_id": {
-					"$oid": "638b0dec4604b7bf59f51399"
-				}
-			},
-			{
-				"user": "james",
-				"comment": "cool!",
-				"_id": {
-					"$oid": "638b10194604b7bf59f51670"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0c2a4604b7bf59f51312"
-		},
-		"name": "Fuecoco",
-		"artist": "ash",
-		"year": "2022",
-		"category": "Pokemon",
-		"medium": "Digital",
-		"description": "New starter Fuecoco",
-		"image": "https://scarletviolet.pokemon.com/_images/pokemon/fuecoco/pokemon-fuecoco.png",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0c704604b7bf59f5131f"
-		},
-		"name": "Champion",
-		"artist": "ash",
-		"year": "2020",
-		"category": "Pokemon",
-		"medium": "Digital",
-		"description": "Ash winning the pokemon league",
-		"image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ash-pikachu-pokemon-ultimate-journeys-1668187026.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0cd74604b7bf59f5133a"
-		},
-		"name": "Mazda RX-7",
-		"artist": "nick",
-		"year": "1980",
-		"category": "brochures",
-		"medium": "Pencil",
-		"description": "A cool mazda brochure",
-		"image": "https://i.pinimg.com/564x/9e/b8/3f/9eb83f31905e60b3a4e7c464fde8dab3.jpg",
-		"likes": ["james"],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0d454604b7bf59f51367"
-		},
-		"name": "Screaming",
-		"artist": "nick",
-		"year": "2022",
-		"category": "Tragic",
-		"medium": "Pencil",
-		"description": "Me when I can't figure out an assignment!",
-		"image": "https://i.pinimg.com/564x/f1/a6/9c/f1a69c13d2e94e031b59e1a8b7c6cdf9.jpg",
-		"likes": ["pablo", "james"],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0d6c4604b7bf59f5136f"
-		},
-		"name": "Crying",
-		"artist": "nick",
-		"year": "2022",
-		"category": "Tragic",
-		"medium": "Pencil",
-		"description": "Me when I work 12 hours on an assignment",
-		"image": "https://i.pinimg.com/564x/9e/66/be/9e66be1d663a206d788cde4b65cfef3d.jpg",
-		"likes": [],
-		"comments": [
-			{
-				"user": "pablo",
-				"comment": "This is like me during the blue period",
-				"_id": {
-					"$oid": "638b0f2f4604b7bf59f5150a"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0d9f4604b7bf59f51377"
-		},
-		"name": "Chilling",
-		"artist": "nick",
-		"year": "2022",
-		"category": "Tragic",
-		"medium": "Pencil",
-		"description": "Me when I finish my assignment!",
-		"image": "https://i.pinimg.com/564x/51/c1/ac/51c1ac1e4bd3519a8d694800851ed722.jpg",
-		"likes": ["james"],
-		"comments": [
-			{
-				"user": "james",
-				"comment": "Me all the time",
-				"_id": {
-					"$oid": "638b10094604b7bf59f5164a"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0e514604b7bf59f513d5"
-		},
-		"name": "Fruit",
-		"artist": "kick",
-		"year": "2019",
-		"category": "Stamp",
-		"medium": "Drawn",
-		"description": "A fruit!",
-		"image": "https://i.pinimg.com/564x/d9/05/0a/d9050a9011660c9d95f9c8fb3c9d197f.jpg",
-		"likes": ["james"],
-		"comments": [
-			{
-				"user": "pablo",
-				"comment": "This is not a fruit",
-				"_id": {
-					"$oid": "638b0f354604b7bf59f5150f"
-				}
-			}
-		],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0f9d4604b7bf59f5156d"
-		},
-		"name": "Untitled",
-		"artist": "keith",
-		"year": "1978",
-		"category": "Painting",
-		"medium": "Felt-tip Pen and Watercolor on Paper",
-		"description": "A sad painting",
-		"image": "https://www.haring.com/!/wp-content/uploads/2012/12/painting78_3.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	},
-	{
-		"_id": {
-			"$oid": "638b0fd44604b7bf59f5159d"
-		},
-		"name": "James Harden in OKC",
-		"artist": "james",
-		"year": "2014",
-		"category": "Basketball",
-		"medium": "Photo",
-		"description": "James harden with a small beard",
-		"image": "https://www.gannett-cdn.com/media/USATODAY/USATODAY/2012/10/27/usp-nba_-oklahoma-city-thunder-at-chicago-bulls-16_9.jpg",
-		"likes": [],
-		"comments": [],
-		"default": [],
-		"__v": 0
-	}
-]
+[{
+  "_id": {
+    "$oid": "638b07284604b7bf59f51176"
+  },
+  "name": "The Old Guitarist",
+  "artist": "pablo",
+  "year": "1903",
+  "category": "Old",
+  "medium": "Oil on panel",
+  "description": "The Old Guitarist is an oil painting by Pablo Picasso, which he created in late 1903 and early 1904. It depicts an elderly musician, a haggard man with threadbare clothing, who is hunched over his guitar while playing in the streets of Barcelona, Spain. It is on display at the Art Institute of Chicago as part of the Helen Birch Bartlett Memorial Collection.",
+  "image": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Old_guitarist_chicago.jpg/270px-Old_guitarist_chicago.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b078a4604b7bf59f51183"
+  },
+  "name": "Self-Portrait",
+  "artist": "pablo",
+  "year": "1901",
+  "category": "Old",
+  "medium": "Oil paint",
+  "description": " This Self-Portrait, painted during his second stay in Paris in the winter of 1901, was the end of a series and marked the beginning of the Blue Period.",
+  "image": "https://www.pablopicasso.org/images/paintings/self-portrait.jpg",
+  "likes": [
+    "nick",
+    "keith",
+    "james"
+  ],
+  "comments": [
+    {
+      "user": "nick",
+      "comment": "This is sad!",
+      "_id": {
+        "$oid": "638b0df64604b7bf59f513a7"
+      }
+    },
+    {
+      "user": "keith",
+      "comment": "I agree nick",
+      "_id": {
+        "$oid": "638b0f494604b7bf59f5152b"
+      }
+    },
+    {
+      "user": "james",
+      "comment": "yeah facts",
+      "_id": {
+        "$oid": "638b0ff24604b7bf59f515fa"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b08734604b7bf59f51199"
+  },
+  "name": "Friends",
+  "artist": "helen",
+  "year": "2021",
+  "category": "Vibrant",
+  "medium": "Digital",
+  "description": "A vibrant digital painting by Helen Dardik",
+  "image": "https://images.squarespace-cdn.com/content/v1/5c9137ce4d546e1df0b2e214/1554440186621-BETIPIXJ7UR8ZL433QA0/helen_dardik_illustration_1.jpg",
+  "likes": [
+    "pablo"
+  ],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b08ea4604b7bf59f511d2"
+  },
+  "name": "Icons 5",
+  "artist": "keith",
+  "year": "1990",
+  "category": "Vibrant",
+  "medium": "Drawing",
+  "description": "An icon by Keith",
+  "image": "https://www.haring.com/!/wp-content/uploads/2012/12/icons5.jpg",
+  "likes": [
+    "pablo"
+  ],
+  "comments": [
+    {
+      "user": "nick",
+      "comment": "I love keith!",
+      "_id": {
+        "$oid": "638b0e0d4604b7bf59f513c0"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b09344604b7bf59f511e7"
+  },
+  "name": "cat",
+  "artist": "joe",
+  "year": "2000",
+  "category": "Y2K",
+  "medium": "Digital",
+  "description": "A cool cat from pinterest!",
+  "image": "https://i.pinimg.com/564x/0d/ee/9e/0dee9eda79749fafd239fbbffb069967.jpg",
+  "likes": [
+    "james"
+  ],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b09644604b7bf59f511ef"
+  },
+  "name": "HEADPHONES",
+  "artist": "joe",
+  "year": "2022",
+  "category": "cute",
+  "medium": "pencil",
+  "description": "cat with headphones",
+  "image": "https://i.pinimg.com/564x/eb/7a/96/eb7a96ac6b3c0d298df2e4a0d003b0f1.jpg",
+  "likes": [
+    "pablo"
+  ],
+  "comments": [
+    {
+      "user": "nick",
+      "comment": "Cute cat!",
+      "_id": {
+        "$oid": "638b0dfc4604b7bf59f513ae"
+      }
+    },
+    {
+      "user": "nick",
+      "comment": "This is soo cool!",
+      "_id": {
+        "$oid": "638b0e024604b7bf59f513b6"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b09924604b7bf59f511f7"
+  },
+  "name": "gr",
+  "artist": "joe",
+  "year": "2000",
+  "category": "y2k",
+  "medium": "pencil",
+  "description": "cat playing guitar, someone plug him in",
+  "image": "https://i.pinimg.com/564x/5d/f0/1d/5df01dbab203bfddce05bbc15a3e3bd4.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b09c04604b7bf59f511ff"
+  },
+  "name": "more music",
+  "artist": "joe",
+  "year": "2014",
+  "category": "cute",
+  "medium": "pencil",
+  "description": "More cats!",
+  "image": "https://i.pinimg.com/564x/63/9c/d4/639cd4b120dbd48770ec4672298b63f6.jpg",
+  "likes": [
+    "james"
+  ],
+  "comments": [
+    {
+      "user": "james",
+      "comment": "This is so real!",
+      "_id": {
+        "$oid": "638b0feb4604b7bf59f515e7"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0a894604b7bf59f5125c"
+  },
+  "name": "James Harden in Philly",
+  "artist": "james",
+  "year": "2022",
+  "category": "Basketball",
+  "medium": "Photo",
+  "description": "James Harden dribbling a basketball!",
+  "image": "https://www.si.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTg5MDU2Njc0MTMxMDkzMzIx/james-harden-76ers-raptors.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0aad4604b7bf59f51264"
+  },
+  "name": "James Harden in Brooklyn",
+  "artist": "james",
+  "year": "2021",
+  "category": "Basketball",
+  "medium": "Photo",
+  "description": "James harden looking cool!",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Harden_dribbling_midcourt%2C_Cavaliers_vs_Nets_on_January_17%2C_2022_%28cropped%29.jpg/1200px-Harden_dribbling_midcourt%2C_Cavaliers_vs_Nets_on_January_17%2C_2022_%28cropped%29.jpg",
+  "likes": [
+    "pablo"
+  ],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0ae54604b7bf59f5126c"
+  },
+  "name": "James Harden in Houston",
+  "artist": "james",
+  "year": "2020",
+  "category": "Basketball",
+  "medium": "Photo",
+  "description": "James harden after hitting a crazy three with Jordan Clarkson in the back looking annoyed!",
+  "image": "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTcxNDUzMzI1NDY2Njc0NjU5/james-harden-rockets-numbers.jpg",
+  "likes": [
+    "nick",
+    "pablo"
+  ],
+  "comments": [
+    {
+      "user": "nick",
+      "comment": "Wow I love James Harden!",
+      "_id": {
+        "$oid": "638b0de44604b7bf59f5138f"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0bed4604b7bf59f51302"
+  },
+  "name": "Rowlett",
+  "artist": "ash",
+  "year": "2022",
+  "category": "Pokemon",
+  "medium": "Digital",
+  "description": "Rowlett flying!",
+  "image": "https://legends.pokemon.com/assets/pokemon/pokemon_rowlet.png",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0c064604b7bf59f5130a"
+  },
+  "name": "Eevee",
+  "artist": "ash",
+  "year": "2019",
+  "category": "Pokemon",
+  "medium": "Digital",
+  "description": "Eevee looking cute",
+  "image": "https://pokemonletsgo.pokemon.com/assets/img/common/char-eevee.png",
+  "likes": [
+    "nick",
+    "james"
+  ],
+  "comments": [
+    {
+      "user": "nick",
+      "comment": "This is a cute pokemon",
+      "_id": {
+        "$oid": "638b0dec4604b7bf59f51399"
+      }
+    },
+    {
+      "user": "james",
+      "comment": "cool!",
+      "_id": {
+        "$oid": "638b10194604b7bf59f51670"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0c2a4604b7bf59f51312"
+  },
+  "name": "Fuecoco",
+  "artist": "ash",
+  "year": "2022",
+  "category": "Pokemon",
+  "medium": "Digital",
+  "description": "New starter Fuecoco",
+  "image": "https://scarletviolet.pokemon.com/_images/pokemon/fuecoco/pokemon-fuecoco.png",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0c704604b7bf59f5131f"
+  },
+  "name": "Champion",
+  "artist": "ash",
+  "year": "2020",
+  "category": "Pokemon",
+  "medium": "Digital",
+  "description": "Ash winning the pokemon league",
+  "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ash-pikachu-pokemon-ultimate-journeys-1668187026.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0cd74604b7bf59f5133a"
+  },
+  "name": "Mazda RX-7",
+  "artist": "nick",
+  "year": "1980",
+  "category": "brochures",
+  "medium": "Pencil",
+  "description": "A cool mazda brochure",
+  "image": "https://i.pinimg.com/564x/9e/b8/3f/9eb83f31905e60b3a4e7c464fde8dab3.jpg",
+  "likes": [
+    "james"
+  ],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0d454604b7bf59f51367"
+  },
+  "name": "Screaming",
+  "artist": "nick",
+  "year": "2022",
+  "category": "Tragic",
+  "medium": "Pencil",
+  "description": "Me when I can't figure out an assignment!",
+  "image": "https://i.pinimg.com/564x/f1/a6/9c/f1a69c13d2e94e031b59e1a8b7c6cdf9.jpg",
+  "likes": [
+    "pablo",
+    "james"
+  ],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0d6c4604b7bf59f5136f"
+  },
+  "name": "Crying",
+  "artist": "nick",
+  "year": "2022",
+  "category": "Tragic",
+  "medium": "Pencil",
+  "description": "Me when I work 12 hours on an assignment",
+  "image": "https://i.pinimg.com/564x/9e/66/be/9e66be1d663a206d788cde4b65cfef3d.jpg",
+  "likes": [],
+  "comments": [
+    {
+      "user": "pablo",
+      "comment": "This is like me during the blue period",
+      "_id": {
+        "$oid": "638b0f2f4604b7bf59f5150a"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0d9f4604b7bf59f51377"
+  },
+  "name": "Chilling",
+  "artist": "nick",
+  "year": "2022",
+  "category": "Tragic",
+  "medium": "Pencil",
+  "description": "Me when I finish my assignment!",
+  "image": "https://i.pinimg.com/564x/51/c1/ac/51c1ac1e4bd3519a8d694800851ed722.jpg",
+  "likes": [
+    "james"
+  ],
+  "comments": [
+    {
+      "user": "james",
+      "comment": "Me all the time",
+      "_id": {
+        "$oid": "638b10094604b7bf59f5164a"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0e514604b7bf59f513d5"
+  },
+  "name": "Fruit",
+  "artist": "kick",
+  "year": "2019",
+  "category": "Stamp",
+  "medium": "Drawn",
+  "description": "A fruit!",
+  "image": "https://i.pinimg.com/564x/d9/05/0a/d9050a9011660c9d95f9c8fb3c9d197f.jpg",
+  "likes": [
+    "james"
+  ],
+  "comments": [
+    {
+      "user": "pablo",
+      "comment": "This is not a fruit",
+      "_id": {
+        "$oid": "638b0f354604b7bf59f5150f"
+      }
+    }
+  ],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0f9d4604b7bf59f5156d"
+  },
+  "name": "Untitled",
+  "artist": "keith",
+  "year": "1978",
+  "category": "Painting",
+  "medium": "Felt-tip Pen and Watercolor on Paper",
+  "description": "A sad painting",
+  "image": "https://www.haring.com/!/wp-content/uploads/2012/12/painting78_3.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0fd44604b7bf59f5159d"
+  },
+  "name": "James Harden in OKC",
+  "artist": "james",
+  "year": "2014",
+  "category": "Basketball",
+  "medium": "Photo",
+  "description": "James harden with a small beard",
+  "image": "https://www.gannett-cdn.com/media/USATODAY/USATODAY/2012/10/27/usp-nba_-oklahoma-city-thunder-at-chicago-bulls-16_9.jpg",
+  "likes": [],
+  "comments": [],
+  "default": [],
+  "__v": 0
+}]

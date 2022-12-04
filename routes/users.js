@@ -88,11 +88,14 @@ router.put("/:username/update/:type", async (req, res) => {
 	paramType = req.params.type;
 	let user;
 	if (paramUsername === req.session.username) {
+		console.log("paramType: " + paramType);
 		try {
 			user = await User.findOne({ username: paramUsername });
+			console.log(user);
 			user.accountType = paramType;
 			await user.save();
-		} catch {
+		} catch (err) {
+			console.log(err);
 			res.status(500);
 		}
 	} else {
