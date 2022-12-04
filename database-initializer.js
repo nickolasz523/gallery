@@ -1,16 +1,8 @@
-cards.forEach((card) => {
-	delete card.collectible;
-	delete card.cost;
-	delete card.dbfId;
-	delete card.flavor;
-	delete card.id;
-	delete card.mechanics;
-	delete card.set;
-	delete card.text;
-	delete card.type;
-});
+let fs = require("fs");
 
-console.log(cards);
+let art = JSON.parse(fs.readFileSync("./public/database/art.json"));
+let users = JSON.parse(fs.readFileSync("./public/database/users.json"));
+let workshops = JSON.parse(fs.readFileSync("./public/database/workshops.json"));
 
 //"artist":"Arthur Bozonnet","attack":3,"cardClass":"MAGE","health":2,"name":"Fallen Hero","rarity":"RARE"
 let mongo = require("mongodb");
@@ -23,17 +15,17 @@ MongoClient.connect(
 	function (err, client) {
 		if (err) throw err;
 
-		db = client.db("t8");
-		db.dropCollection("cards", function (err, result) {
+		db = client.db("gallery");
+		db.dropCollection("art", function (err, result) {
 			if (err) {
 				console.log(
 					"Error dropping collection. Likely case: collection did not exist (don't worry unless you get other errors...)"
 				);
 			} else {
-				console.log("Cleared cards collection.");
+				console.log("Cleared art collection.");
 			}
 
-			db.collection("cards").insertMany(cards, function (err, result) {
+			db.collection("art").insertMany(art, function (err, result) {
 				if (err) throw err;
 				console.log(
 					"Successfuly inserted " + result.insertedCount + " cards."
@@ -41,5 +33,46 @@ MongoClient.connect(
 				process.exit();
 			});
 		});
+
+		// db.dropCollection("users", function (err, result) {
+		// 	if (err) {
+		// 		console.log(
+		// 			"Error dropping collection. Likely case: collection did not exist (don't worry unless you get other errors...)"
+		// 		);
+		// 	} else {
+		// 		console.log("Cleared users collection.");
+		// 	}
+
+		// 	db.collection("users").insertMany(users, function (err, result) {
+		// 		if (err) throw err;
+		// 		console.log(
+		// 			"Successfuly inserted " + result.insertedCount + " cards."
+		// 		);
+		// 		process.exit();
+		// 	});
+		// });
+
+		// db.dropCollection("workshops", function (err, result) {
+		// 	if (err) {
+		// 		console.log(
+		// 			"Error dropping collection. Likely case: collection did not exist (don't worry unless you get other errors...)"
+		// 		);
+		// 	} else {
+		// 		console.log("Cleared workshops collection.");
+		// 	}
+
+		// 	db.collection("workshops").insertMany(
+		// 		workshops,
+		// 		function (err, result) {
+		// 			if (err) throw err;
+		// 			console.log(
+		// 				"Successfuly inserted " +
+		// 					result.insertedCount +
+		// 					" cards."
+		// 			);
+		// 			process.exit();
+		// 		}
+		// 	);
+		// });
 	}
 );

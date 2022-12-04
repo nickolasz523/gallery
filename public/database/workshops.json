@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "638b08904604b7bf59f511a4"
+  },
+  "workshopName": "Digital Art Creation",
+  "workshopUser": "helen",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0a2e4604b7bf59f5122e"
+  },
+  "workshopName": "How to draw cats!",
+  "workshopUser": "joe",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0afa4604b7bf59f51275"
+  },
+  "workshopName": "Draw a basketball!",
+  "workshopUser": "james",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0e594604b7bf59f513de"
+  },
+  "workshopName": "Draw cool stamps!",
+  "workshopUser": "kick",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0f5c4604b7bf59f5153e"
+  },
+  "workshopName": "Draw like me!",
+  "workshopUser": "keith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638b0f644604b7bf59f51553"
+  },
+  "workshopName": "Don't be bad at drawing",
+  "workshopUser": "keith",
+  "__v": 0
+}]
